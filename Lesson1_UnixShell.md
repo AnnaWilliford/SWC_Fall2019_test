@@ -183,9 +183,9 @@ $ cd - #takes you BACK one directory, NOT UP!!!
 #### **Challenge 2**
 
 Make a diagram of our directory structure (~/Desktop/SWC) and practice navigation commands.  
-a) Find out where you currently are. 
+a) Find out where you currently are.  
 b) Go to `Data` folder, what is there?  
-c) Go back where you came from (with `cd -` command). 
+c) Go back where you came from (with `cd -` command).  
 d) Go one directory up.  
 e) Try relative and absolute paths.  
 f) Get comfortable navigating across file system - try changing directories into different folders within `SWC` folder and explore there contents. Use `-a` flag, does every directory has hidden files?  
@@ -225,7 +225,6 @@ $ subl MyFirstFile.txt
 
 #if you are on mac working with default text editor
 $ open MyFirstFile.txt 
-
 
 ```
 When you open `MyFirstFile.txt` in a text editor, type:
@@ -412,9 +411,10 @@ Our question 3 can be answered with one line of code without creating unnecessar
 $ grep 'Uruguay' Uruguay.txt | cut -f4 | sort -n |tail -n1 > Uruguay_LE_max2.txt
 ```
 #### **Challenge 4**
-Use pipes to find the year with the highest life expectancy in `Sweden.txt` Record the year to `Sweden_YearWithMaxLE.txt`
-First, copy `Sweden.txt` to `Lesson1_UnixShell`: 
-`cp Data/ByCountry/Sweden.txt .`
+Use pipes to find the year with the highest life expectancy in `Sweden.txt`. Record the output to `Sweden_YearWithMaxLE.txt`.  
+First, copy `Sweden.txt` to Lesson1_UnixShell: 
+`cp Data/ByCountry/Sweden.txt .`  
+
 Hints: First, describe the steps you need to get the answer in natural language (English or any other). Then think how to implement them using the commands you just learned. To select multiple columns, use `cut -fcol1,col2` For example, to select columns 2 and 3, use `cut -f2,3`. To sort by column 2, use `sort -k2`
 
 **Solution**
