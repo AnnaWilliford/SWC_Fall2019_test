@@ -1,6 +1,7 @@
 # Software Carpentry Workshop
 
 ## Lesson1: Linux Shell: Part 1
+This lesson is based on [this Software Carpentry lesson](http://swcarpentry.github.io/shell-novice/)
 
 ### 1. Why learn Linux?
 + Most widely used OS in research and technology
@@ -188,7 +189,7 @@ b) Go to `Data` folder, what is there?
 c) Go back where you came from (with `cd -` command).  
 d) Go one directory up.  
 e) Try relative and absolute paths.  
-f) Get comfortable navigating across file system - try changing directories into different folders within `SWC` folder and explore there contents. Use `-a` flag, does every directory has hidden files?  
+f) Get comfortable navigating across file system - try changing directories into different folders within `SWC` folder and explore there contents. Use `-a` flag, does every directory have hidden files?  
 
 
 ### 2b. Bash: make new files and directories
