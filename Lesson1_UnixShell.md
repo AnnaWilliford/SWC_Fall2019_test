@@ -182,12 +182,12 @@ $ cd - #takes you BACK one directory, NOT UP!!!
 
 #### **Challenge 2**
 
-Scetch a diagram of our directory structure (~/Desktop/SWC) and practice navigation commands.  
-a) Find out where you currently are
-b) Go to `Data` folder, what is there? 
-c) Go back where you came from (with `cd -` command)
-d) Go one directory up
-e) Try relative and absolute paths
+Make a diagram of our directory structure (~/Desktop/SWC) and practice navigation commands.  
+a) Find out where you currently are. 
+b) Go to `Data` folder, what is there?  
+c) Go back where you came from (with `cd -` command). 
+d) Go one directory up.  
+e) Try relative and absolute paths.  
 f) Get comfortable navigating across file system - try changing directories into different folders within `SWC` folder and explore there contents. Use `-a` flag, does every directory has hidden files?  
 
 
