@@ -254,7 +254,7 @@ Look at the gapminder dataset again.
 Our smallest unit can represent a single element in the dataset, like individual year, or individual country, 
 but what would be the simplest object that you can make with multiple elements?
 
-* Vectors: collection of elements of the same data type
+* **Vectors**: collection of elements of the same data type
     * what part of our dataset can be represented by a vector?
     * how to create: use concatenate function, c()
     ```
@@ -293,7 +293,7 @@ but what would be the simplest object that you can make with multiple elements?
     v3 <- as.character(v3)  #also known as coersion
     str(v3)
     ```
-* Matrices: 2-dimensional vectors that contain elements of the same data type
+* **Matrices**: 2-dimensional vectors that contain elements of the same data type
     * how to create: use matrix() function
     ```
     m <- matrix(c(1:18), 3,6)
@@ -316,7 +316,7 @@ but what would be the simplest object that you can make with multiple elements?
    
     ```
 
-* Lists : generic vectors - collection of elements with different data types
+* **Lists** : generic vectors - collection of elements with different data types
     * what part of our dataset can be represented by a list?
     * to create: use list() function
     ```
@@ -326,7 +326,7 @@ but what would be the simplest object that you can make with multiple elements?
     str(l)
     length(l)
     ```
-     **CHALLENGE** 
+     **Challenge** 
     
     ```
     TASK: Try to create a list named 'myorder' that contains the 
@@ -345,7 +345,7 @@ but what would be the simplest object that you can make with multiple elements?
     *Hint: Define your elements first, then create a list with them.
     You will need c(), factor() and list() functions
     ```
-    **CHALLENGE: Answer**
+    **Challenge: Answer**
     
     > ```
     > menuItems<-c("chicken", "soup", "salad", "tea")
@@ -359,7 +359,7 @@ but what would be the simplest object that you can make with multiple elements?
     * str(myorder)
     * print(myorder)
         
-* Data frames
+* **Data frames**
     * Let's go back to gapminder dataset. Could you make an informative guess about how this data structure can be represented in R?
 
     * Yes! It is a list of vectors of equal length, or a data frame. 
@@ -472,7 +472,7 @@ This function is for .csv files (where fields are separated by a comma)
 
 Now we know how to read dataframes into R. Let's use R to find out more about the data
 
-**Challenge 3.1**  Play with gapminder dataset
+**Challenge**  Play with gapminder dataset
 
 ```
 TASK: Answer the following questions about `myData` object
