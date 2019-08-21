@@ -3,7 +3,7 @@
 ## Lesson1: Linux Shell: Part 1
 This lesson is based on [this Software Carpentry lesson](http://swcarpentry.github.io/shell-novice/)
 
-### Please make sure your directory structure is setup as described [here](https://github.com/uta-carpentries/SoftwareCarpentryWorkshops_general/blob/master/Data_DirectoryStructure_Setup.md)
+#### Please make sure your directory structure is setup as described [here](https://github.com/uta-carpentries/SoftwareCarpentryWorkshops_general/blob/master/Data_DirectoryStructure_Setup.md)
 
 ### 1. Why learn Linux?
 + Most widely used OS in research and technology
