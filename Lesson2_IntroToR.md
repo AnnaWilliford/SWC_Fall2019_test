@@ -59,17 +59,17 @@ brackets `()`. Type 64 inside the parantheses, hit `enter` and the output is you
    Notice that when you select `sqrt` and `print` with autocomplete feature, they come with parantheses, like so: `print()` and `sqrt()`. This is because these commands call functions and functions often need arguments. Function arguments(inputs to the function) are supplied inside the parantheses.
    
 * Scripting mode. It is often the case that we need to reuse our commands. If so, you can type commands in the text editor window and save them as a text file.  
-   Let's open a new R Script file by clicking the `+` icon on the top left corner of scripting panel and write our command there, for example `print("Good morning!")`. To check if this command works, you can send it for execution to console with `CTR +Enter` click. 
-   We have a very simple example here, but you can imagine writing hundreds of commands in the order you want them to be executed to accomplish a certain task. This is what an R program or R script is. It is a good practice to comment your code. 
-The comments (statements that are helpful to the user, but are not executed) in R start with `#`. 
-Let's add a comment to our simple script.
+   Let's open a new R Script file by clicking the `+` icon on the top left corner of scripting panel and write our command there, for example `print("Good morning!")`. To check if this command works, you can send it for execution to console with `CTR +Enter` click. Once you know you have a command that works, you can save the file and reuse the commands later.  
+   We have a very simple example here, but you can imagine writing hundreds of commands in the order you want them to be executed to accomplish a certain task. This is what an R program or R script is.  
+   It is a good practice to comment your code. The comments (statements that are helpful to the user, but are not executed) in R start with `#`.  
+   Let's add a comment to our simple script.
 
     ```
     #my first R command 
     print("Good morning")
     ```
     
-   We can save the file with our commands and reuse it later. For now, let's save our example as R_commands.R file in `Lesson2_IntroToR` folder.
+   Let's save our script as `R_commands.R` file in `Lesson2_IntroToR` folder.
     
 
 ## 2. Building blocks of R
