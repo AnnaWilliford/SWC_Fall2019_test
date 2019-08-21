@@ -5,7 +5,7 @@ This lesson is based on [this Software Carpentry lesson](http://swcarpentry.gith
 
 #### Please make sure your directory structure is setup as described [here](https://github.com/uta-carpentries/SoftwareCarpentryWorkshops_general/blob/master/Data_DirectoryStructure_Setup.md)
 
-Before we start talking about R, let's copy `Data` folder from `SCW` to `Lesson2_IntroToR` and take a look at `gapminder.txt` in Excel. This dataset contains information about life expectancy, population sizes and gdp per capita in different countries for different years. Let's see how we can use R to analyze this dataset. 
+Before we start talking about R, let's copy `gapminder.txt` file from `SCW/Data/` to `Lesson2_IntroToR` and take a look at our dataset in Excel. This dataset contains information about life expectancy, population sizes and gdp per capita in different countries for different years. Let's see how we can use R to analyze this dataset. 
 
 
 ### Learning objectives
@@ -36,7 +36,7 @@ We will be working with R using RStudio. This is a piece of software (also known
         * Environment tab keeps track of all objects you create in the current session
         * Both records can be saved for later as .Rhistory and .RData files
     * Bottom right = several helpful tabs, we will see how to use them later. For now, notice that 'Files' tab allows you to navigate between folders.
-          For this workshop we need to navigate to `Lesson2_IntroToR` folder. Click three dots icon at the top right corner of the 'Files' tab and navigate to `Desktop/SCW/Lesson2_IntroToR`. When there, click 'More' and select 'Set as working directory'. Notice the change in your console window  - your work with R is now done from `Lesson2_IntroToR` folder.
+          For this workshop we need to navigate to `Lesson2_IntroToR` folder. Click three dots icon at the top right corner of the 'Files' tab and navigate to `Desktop/SCW/Lesson2_IntroToR`.  You should see `gapminder.txt` file here. Now click 'More' and select 'Set as working directory'. Notice the change in your console window  - your work with R is now done from `Lesson2_IntroToR` folder.
 
 * Interactive mode. When you type commands in the console window and press 'ENTER', they are executed immediately and the output is displayed. Here are few examples:  
    ```
@@ -409,15 +409,15 @@ v[-c(3:5)]
 
 ## the above works for lists too, notice that [] returns list, use [[]] to return vector
 ## try subsetting myOrder list we created above
-myOrder[1]
-myOrder[[1]]
+myorder[1]
+myorder[[1]]
 
 ##for 2D structures like matrices and dataframes provide 2 indices [row, column]
-myOrder_df[1:3, ] #gets first 3 rows
+myorder_df[1:3, ] #gets first 3 rows
 
 ### 2. By name:
 # For lists and dataframes: use `$` operator to extract columns as vectors 
-myOrder_df$menuType
+myorder_df$menuType
 
 ### 3. By logical vector index: selects elements corresponding to TRUE values 
 ### of logical vector:###
@@ -438,20 +438,20 @@ v1
 v==5   # returns logical vector
 #v[v==5] selects element of v that have TRUE values in the output of v==5
 
-##Use `myOrder_df` dataframe:select rows that satisfy various conditions
+##Use `myorder_df` dataframe:select rows that satisfy various conditions
 ##Diplay logical vector to understand the ouput
-df1<-myOrder_df[myOrder_df$menuType=="solid", ]
+df1<-myorder_df[myorder_df$menuType=="solid", ]
 df1
 
-df2<-myOrder_df[myOrder_df$menuCost>3, ]
+df2<-myorder_df[myorder_df$menuCost>3, ]
 df2
 
 ##Can you explain the output generated here?
-df3<-myOrder_df[myOrder_df$menuType=="solid"]
+df3<-myorder_df[myorder_df$menuType=="solid"]
 df3
 
 ```
-Subsetting and tearing apart the statistics;
+
 
 ## 3. Overview using our gapminder dataset
 
@@ -485,7 +485,7 @@ TASK: Answer the following questions about `myData` object
 6. Can you extract all countries for which life expectancy is below 70?
 7. Can you make a new column that contains population in units of millions of people?
 ```
-**Challenge 3.1: Answer**
+**Challenge: Answer**
 
 > ```
 > 1. str()
@@ -511,6 +511,7 @@ TASK: Answer the following questions about `myData` object
 > This is a simple way to add a column to a dataframe. 
 > You can verify that you added a column with head(myData)
 > ```
+
 ## 4. Writing simple R scripts
 
 An R script (or any other script) is a series of commands that are executed in the order they are written. The commands that we have executed one by one in R studio can be written to a text file and then executed all at once by running the file (which is now an R script). R scripts usually have .R extensions. Here is an example of a simple R script that will plot life expectancy over years for Canada. 
@@ -554,7 +555,7 @@ plot(Canada$year, Canada$lifeExp, col="blue", type="l")
 dev.off()  #close device; Canada.png will be saved to your current folder (R_intro)
 
 ```
-**Challenge 3.2**  Write your own R script
+**Challenge**  Write your own R script
 ```
 Write a script to calculate mean gdpPerCap for African and European countries.
 Try to make a barplot to display your results.
@@ -563,7 +564,7 @@ You might need to read help for 'mean' and 'barplot' functions
 ?mean
 ?barplot
 ```
-**Challenge 3.2: Answer**
+**Challenge: Answer**
 ```{r}=
 ##This is  MeanGdpPlot.R script
 
@@ -596,4 +597,4 @@ dev.off()
 
 ***Summary***
 
-This lesson introduced you to main ideas of programming: variables, functions, data structures and scripts. Now you can write your own simple programs in R and begin understanding R code written by others. Before we continue with R tomorrow, we need to introduce a different tool- Unix shell. Shell is a program used to interact with Unix/Linux operating systems. It is essential to know how to work with Linux because at some point your analysis will require more computing power than your laptop can offer, and you will move your work from local machines to computer clusters most of which are running Unix/linux operating system. In addition to providing a more suitable environment to run your analysis, Linux offers multiple tools (short programs) for very efficient manipulation of text files.
+This lesson introduced you to main ideas of programming: variables, functions, data structures and scripts. Now you can write your own simple programs in R and begin understanding R code written by others. Our next R lessons will focus on more advanced features of R programming, data visualization and reproducible research.
