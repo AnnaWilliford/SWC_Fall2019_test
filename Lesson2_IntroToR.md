@@ -69,7 +69,7 @@ brackets `()`. Type 64 inside the parantheses, hit `enter` and the output is you
     print("Good morning")
     ```
     
-   Let's save our script as `R_commands.R` file in `Lesson2_IntroToR` folder.
+   Let's save our script as `R_commands.R` file in `Lesson2_IntroToR` folder. Notice, this file is now visible inside `Lesson2_IntroToR` folder in the bottom-right pannel under `Files` tab.
     
 
 ## 2. Building blocks of R
@@ -78,25 +78,21 @@ Let's work in scripting mode from now on so that you will have the record of all
 
 ### Variables/objects
 
-One of the main concepts of any programming language is a notion of a variable. Variables are created to store values for future use.
-Now see if you wanna get the value of 3+5, you have to run the command everytime
-But you can store the value under a variable for future use.
-A variable with a value becomes an object
-
-To create a variable in R, use `<-` (Alt + dash) assignment operator:
+One of the main concepts of any programming language is a notion of a **variable**. Variables are created to store values for future use. 
+To assign a value to a variable in R, use `<-` (Alt + dash) assignment operator:
 ```
 ### Variables
 
-#variable name that stores value "Jane"
+#variable `name` that stores value "Jane"
 name <- "Jane"
 print(name)
 
-#variable price that stores value 3.99
+#variable `price` that stores value 3.99
 price <- 3.99
 print(price)
 
 ### working with environment
-#remember what env does? it stores the objects you created. Let's see what the environment tab show us. how to see the list on screen?
+#remember what env does? it stores the objects you created. Let's see what the environment tab show us. How to see the list of variables on the screen?
 
 #list all objects in your environment
 ls()
@@ -111,19 +107,22 @@ rm(list=ls())
 ### Functions
 
 In general, a function takes an input and transforms it according to the function's definition(rules). 
-You can recognize functions in R by the presence of parantheses. Objects in parantheses are called function's **arguments** 
+You can recognize functions in R by the presence of parantheses. Function's **arguments** are supplied inside parantheses.
 ```
-#applying square root function
-mass<-64 #is a variable
-sqrt(mass) #function with argument provided
-res<-sqrt(mass) #variable with a function as its value
-In the example, the square root function takes `mass` object as input and finds the square root of its value. The result is then assigned to `res` variable. In our second example, `getwd()` is a function that outputs your current location within the file system. Although there is no input (many functions do not require arguments), parantheses are still required for a proper syntax in R.
+###applying square root function
+mass<-64                #mass is a variable
+sqrt(mass)              #sqrt() is a function with `mass` as its argument
+res<-sqrt(mass)         #variable that stores the output of sqrt(mass)function
 
-#applying getwd() function
+#In the example above, the square root function takes `mass` object as input and finds the square root of its value. The result is then assigned to `res` variable. 
+
+###applying getwd() function
 getwd()
+
+#In our second example, `getwd()` is a function that outputs your current location within the file system. Although there is no input (many functions do not require arguments), parantheses are still required for a proper syntax in R.
 ```
 There are thousands of built-in functions in R. 
-There are also help functions that you can use to find out what other function do and how to use them. 
+There are also help functions that you can use to find out what function do and how to use them. 
 The help appears in the bottom-right window of the RStudio.
 
 ```
@@ -133,15 +132,11 @@ The help appears in the bottom-right window of the RStudio.
 help(mean)
 
 ```
-The functionality of R is expanded by R packages that include functions not present in the default installation of R. 
-When you need to use another package, do these 2 things
 
-```
-```
 **Challenge 2.1**
     
 ```
-TASK: What will be the value of each  variable  after each statement in the following code?
+TASK: What will be the value of each variable after each statement is executed in the following code?
 
 mass <- 47.5
 age <- 122
@@ -150,8 +145,7 @@ age <- age - 20
 height <- height + 20
         
 ```
-
-As you can see, a variable is assigned a value equal to the value of the evaluated expression on the right side of the assignment operator. 
+As you can see, a variable is assigned a value equal to the value of the evaluated expression on the right side of the assignment operator. But what about `height`?
 
 **A note on variable names:**
 * NO SPACES in names
@@ -161,6 +155,8 @@ As you can see, a variable is assigned a value equal to the value of the evaluat
 ```
 
 ### working with additional packages 
+The functionality of R is expanded by R packages that include functions not present in the default installation of R. 
+When you need to use another package, do these 2 things:
 
 #install package called "knitr"
 install.package("knitr") 
