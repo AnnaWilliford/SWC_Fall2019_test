@@ -5,7 +5,7 @@ This lesson is based on [this Software Carpentry lesson](http://swcarpentry.gith
 
 #### Please make sure your directory structure is setup as described [here](https://github.com/uta-carpentries/SoftwareCarpentryWorkshops_general/blob/master/Data_DirectoryStructure_Setup.md)
 
-Before we start talking about R, let's copy `Data` folder from `SCW` to `Lesson2_IntroToR` and take a look at `gapminder.txt` in Excel. This is a dataset containing information about life expectancy, population sizes and gdp per capita in different countries for different years. Let's see how we can use R to analyze this dataset. 
+Before we start talking about R, let's copy `Data` folder from `SCW` to `Lesson2_IntroToR` and take a look at `gapminder.txt` in Excel. This dataset contains information about life expectancy, population sizes and gdp per capita in different countries for different years. Let's see how we can use R to analyze this dataset. 
 
 
 ### Learning objectives
@@ -30,14 +30,13 @@ We will be working with R using RStudio. This is a piece of software (also known
 
 * The 4 windows of RStudio:
     * Top left = text editor,write your commands/code here
-    * Bottom left = R console, run (execute) your commands here
+    * Bottom left = R console, run (execute) your commands here (interactive mode)
     * Top right = things that R keeps track of:
         * History tab records all the commands you type in R console
         * Environment tab keeps track of all objects you create in the current session
         * Both records can be saved for later as .Rhistory and .RData files
     * Bottom right = several helpful tabs, we will see how to use them later. For now, notice that 'Files' tab allows you to navigate between folders.
-          For this workshop we need to navigate to 'SWC_fall2018' folder that we created on the Desktop. Click three dots icon at the top right corner of the 'Files' tab and navigate to Desktop/SWC_fall2018. We want to enter 'R_intro' folder. When there, click 'More' and select 'Set as working directory'. Notice the change in your console window  - your work with R is now done from 'R_intro' folder.
-         - [x] do it with students and make sure everyone is with you - put up red sticky notes if having problems, green when done with the task.
+          For this workshop we need to navigate to `Lesson2_IntroToR` folder. Click three dots icon at the top right corner of the 'Files' tab and navigate to `Desktop/SCW/Lesson2_IntroToR`. When there, click 'More' and select 'Set as working directory'. Notice the change in your console window  - your work with R is now done from `Lesson2_IntroToR` folder.
 
 * Interactive mode. When you type commands in the console window and press 'ENTER', they are executed immediately and the output is displayed. Here are few examples:  
             > 3+5
@@ -47,13 +46,10 @@ We will be working with R using RStudio. This is a piece of software (also known
     Symbol `>` means that the R is ready for the next command. If you enter incomplete commands, you will see `+` which means that the 
     system is waiting for you to complete the command. You can always press 'Esc' to return to `>` when stuck with `+` at the prompt.
     
-The best thing about R is that it has inbuilt things so you do not have to type a lot
-when you type sq, press tab, it gives you all options of words that start with sq 
-and you gotta select the one you want simply hit tab again or hit enter and you are there
-Another thing is that when you type a parenthesis it automatically gives you both the opening and the closing 
-brackets and it is the same thing with the quotes
-So in the parenthesis type 64, hit enter and the output is your result
-These are all numbers so far we have used, but can you tell R to give you some non-math output?
+There is a handy feature that allows you to enter commands without typing them all out (known as autocomplete). For example, instead of typing `sqrt`, if you type `sq` and press `tab`, you see all words that start with `sq`. You can select the command you are looking for and press `enter`.  
+
+Notice also that when you type a parenthesis `(` it automatically gives you both the opening and the closing 
+brackets `()`. Type 64 inside the parantheses, hit `enter` and the output is your result. R console behaves similarly with quates.
   
   > print("How are you?")
   > print(64)
