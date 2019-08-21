@@ -40,23 +40,23 @@ We will be working with R using RStudio. This is a piece of software (also known
 
 * Interactive mode. When you type commands in the console window and press 'ENTER', they are executed immediately and the output is displayed. Here are few examples:  
 ```
-            > 3+5
-            > sqrt(64) 
+   > 3+5
+   > sqrt(64) 
 ```
             
-   Symbol `>` means that the R is ready for the next command. If you enter incomplete commands, you will see `+` which means that the 
-    system is waiting for you to complete the command. You can always press 'Esc' to return to `>` when stuck with `+` at the prompt.
-    There is a handy feature that allows you to enter commands without typing them all out (known as autocomplete). For example, instead of typing `sqrt`, if you type `sq` and press `tab`, you see all words that start with `sq`. You can select the command you are looking for and press `enter`.  
+Symbol `>` means that the R is ready for the next command. If you enter incomplete commands, you will see `+` which means that the system is waiting for you to complete the command. You can always press 'Esc' to return to `>` when stuck with `+` at the prompt.  
 
-   Notice also that when you type a parenthesis `(` it automatically gives you both the opening and the closing 
-brackets `()`. Type 64 inside the parantheses, hit `enter` and the output is your result. R console behaves similarly with quotes.
-  
-  > print("How are you?")
-  > print(64)
-   I have to include characters in quotes, numbers will not need quotes.
-   
-So this sqrt, and print, if you see automatically come with a parenthesis beside it. These are called functions
-Functions need an argument inside the first parenthesis
+There is a handy feature that allows you to enter commands without typing them all out (known as autocomplete). For example, instead of typing `sqrt`, if you type `sq` and press `tab`, you see all words that start with `sq`. You can select the command you are looking for and press `enter`.  
+
+Notice also that when you type a parenthesis `(` it automatically gives you both the opening and the closing 
+brackets `()`. Type 64 inside the parantheses, hit `enter` and the output is your result. R console behaves similarly with quotes.  
+
+```
+   > sqrt(64)
+   > print("How are you?")
+```
+
+Notice that when you select `sqrt` and `print` with autocomplete feature, they come with paranthesis, like so: `print()` and `sqrt()`. This is because these commands call functions and functions often need arguments. Function arguments(inputs to the function) are supplied inside the parantheses.
    
 * Scripting mode. It is often the case that we would like to reuse our commands. If so, you can type commands in the text editor window. 
 Let's open a new R Script file by clicking the + sign on the top right corner of scripting panel and write our command there, 
