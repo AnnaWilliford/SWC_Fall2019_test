@@ -92,7 +92,8 @@ price <- 3.99
 print(price)
 
 ### working with environment
-#remember what env does? it stores the objects you created. Let's see what the environment tab show us. How to see the list of variables on the screen?
+#remember what env does? it stores the objects you created. Let's see what the environment tab show us.
+#How to see the list of variables on the screen?
 
 #list all objects in your environment
 ls()
@@ -103,37 +104,16 @@ rm(price)
 
 #remove all objects, clear environment
 rm(list=ls()) 
-```
-### Functions
-
-In general, a function takes an input and transforms it according to the function's definition(rules). 
-You can recognize functions in R by the presence of parantheses. Function's **arguments** are supplied inside parantheses.
-```
-###applying square root function
-mass<-64                #mass is a variable
-sqrt(mass)              #sqrt() is a function with `mass` as its argument
-res<-sqrt(mass)         #variable that stores the output of sqrt(mass)function
-
-#In the example above, the square root function takes `mass` object as input and finds the square root of its value. The result is then assigned to `res` variable. 
-
-###applying getwd() function
-getwd()
-
-#In our second example, `getwd()` is a function that outputs your current location within the file system. Although there is no input (many functions do not require arguments), parantheses are still required for a proper syntax in R.
-```
-There are thousands of built-in functions in R. 
-There are also help functions that you can use to find out what function do and how to use them. 
-The help appears in the bottom-right window of the RStudio.
-
-```
-### helpfunctions
-
-?plot
-help(mean)
 
 ```
 
-**Challenge 2.1**
+**A note on variable names:**
+* NO SPACES in names
+* DO NOT START with numbers
+* Names should be MEANINGFUL - help yourself and others to understand your code! 
+
+
+**Challenge**
     
 ```
 TASK: What will be the value of each variable after each statement is executed in the following code?
@@ -147,13 +127,43 @@ height <- height + 20
 ```
 As you can see, a variable is assigned a value equal to the value of the evaluated expression on the right side of the assignment operator. But what about `height`?
 
-**A note on variable names:**
-* NO SPACES in names
-* DO NOT START with numbers
-* Names should be MEANINGFUL - help yourself and others to understand your code! 
+### Functions
+
+In general, a function takes an input and transforms it according to the function's definition(rules). 
+You can recognize functions in R by the presence of parantheses. Function's **arguments** are supplied inside parantheses.
+```
+###applying square root function
+mass<-64                #mass is a variable
+sqrt(mass)              #sqrt() is a function with `mass` as its argument
+res<-sqrt(mass)         #variable that stores the output of sqrt(mass)function
+
+#In the example above, the square root function takes `mass` object as input
+#and finds the square root of its value. The result is then assigned to `res` variable. 
+
+###applying getwd() function
+getwd()
+
+#In our second example, `getwd()` is a function that outputs your current location
+#within the file system. Although there is no input (many functions do not require arguments), 
+#parantheses are still required for a proper syntax in R.
+```
+
+There are thousands of built-in functions in R. 
+There are also help functions that you can use to find out what function do and how to use them. 
+The help appears in the bottom-right window of the RStudio.
+
+```
+### helpfunctions
+
+?plot
+help(mean)
 
 ```
 
+The functionality of R is expanded by R packages that include functions not present in the default installation of R. 
+When you need to use another package, do these 2 things:
+
+```
 ### working with additional packages 
 The functionality of R is expanded by R packages that include functions not present in the default installation of R. 
 When you need to use another package, do these 2 things:
@@ -184,19 +194,18 @@ Variables can hold values of various types. Most common data types:
 * logical
 * complex
 * ...
-#The two most common numeric classes used in R are integer and double (for double precision floating point numbers). 
-R automatically converts between these two classes when needed for mathematical purposes. 
 
-For example: What data type is stored in `score` variable?
-```{r}
+To find out the data type of an object, use `typof()` function:
+
+```
 score<-79
-is.integer(score)
 typeof(score)
+is.integer(score)
 typeof(is.integer(score))
 ```
-The last expression is an example of nested function. Nested functions are very common in R, but are very difficult to understand at first. You can always split nested function into a series of single function calls. Remember that the variable inside the most inner paranthesis is an argument(input)for the function that will be evaluated first.
+The last expression is an example of a nested function. Nested functions are very common in R, but are very difficult to understand at first. You can always split nested function into a series of single function calls. Remember that the variable inside the most inner paranthesis is an argument(input)for the function that will be evaluated first. In this case, function `is.integer(score)` is evaluated first.
 
-**Challenge 2.1:** Learn how to read the output of nested help functions
+**Challenge** Learn how to read the output of nested help functions
 ```
 TASK: Break the following expression into multiple single function calls.
 You will need to assign the output of each function to a variable that
@@ -206,7 +215,7 @@ Assign: `score<-79`
 
 is.logical(is.numeric(typeof(is.integer(score))))
 ```
-**Challenge 2.1: Answer**
+**Challenge: Answer**
 
 > ```
 > score <- 79
@@ -222,7 +231,7 @@ is.logical(is.numeric(typeof(is.integer(score))))
 > print(is.logical(is.numeric(typeof(is.integer(score)))))
 > ```
 
-Sometimes you will need to convert between data types. There are functions that do that: as.integer(), as.character(), and so on. The conversion between data types is not always possible - why? Let's see what happens here:
+Sometimes you will need to convert between data types. There are functions that do that: `as.integer()`, `as.character()`, and so on. The conversion between data types is not always possible. Let's see what happens here:
 
 ```
 score <- 79
@@ -240,9 +249,9 @@ print(name)   # NA = missing value
 
 
 #### Data structures with multiple elements
-The small objects can be combined to build larger objects. 
+We can combine single elements into collections of items.
 Look at the gapminder dataset again. 
-Our smallest objects can be used to represent a single element in the dataset, like individual year, or individual country, 
+Our smallest unit can represent a single element in the dataset, like individual year, or individual country, 
 but what would be the simplest object that you can make with multiple elements?
 
 * Vectors: collection of elements of the same data type
@@ -257,7 +266,7 @@ but what would be the simplest object that you can make with multiple elements?
    
     length(v) # what does this do?
 
-    str(v)    # tells you the structure of the object VERY USEFUL
+    str(v)    # tells you the structure of the object - VERY USEFUL useful function
 
     #view
     head(v, n=2) or head(v, 2) #look at the first 2 elements
@@ -277,8 +286,8 @@ but what would be the simplest object that you can make with multiple elements?
     v3 <- v1+v2
     v3
 
-  #you can also create a character vector:
-  v4 <- c("Jane", "John", "Mary")
+    #you can also create a character vector:
+    v4 <- c("Jane", "John", "Mary")
   
     # change data type
     v3 <- as.character(v3)  #also known as coersion
@@ -298,15 +307,13 @@ but what would be the simplest object that you can make with multiple elements?
     * to create: use factor()
     ```
     ## let's look at our dataset gapminder.txt
-    ##Let's say continent is a category where there are different levels as in the name of the continents asia etc.
-    Let's create a factor continent with the names of the continent in our data
+    ##Let's say continent is a category with different levels (continent names)
+    #Let's create a factor continent with the names of the continent in our data
     cont <- factor(c("asia","europe","america","africa", "oceania")) 
     cont
-    str(cont) # what are these numbers in the output?
-    typeof(cont)   # integer # factors are of integer data type! Levels are numbered in alphabetical order
-    #sometimes important to reorder levels
-    cont <- factor(cont, levels=c("M","F"))
-    str(f)
+    str(cont)             # what are these numbers in the output?
+    typeof(cont)          # integer # factors are of integer data type! Levels are numbered in alphabetical order
+   
     ```
 
 * Lists : generic vectors - collection of elements with different data types
@@ -319,7 +326,7 @@ but what would be the simplest object that you can make with multiple elements?
     str(l)
     length(l)
     ```
-     **CHALLENGE 2.2** 
+     **CHALLENGE** 
     
     ```
     TASK: Try to create a list named 'myorder' that contains the 
@@ -338,7 +345,7 @@ but what would be the simplest object that you can make with multiple elements?
     *Hint: Define your elements first, then create a list with them.
     You will need c(), factor() and list() functions
     ```
-    **CHALLENGE 2.2: Answer**
+    **CHALLENGE: Answer**
     
     > ```
     > menuItems<-c("chicken", "soup", "salad", "tea")
@@ -373,7 +380,7 @@ but what would be the simplest object that you can make with multiple elements?
     
     #now view it!
     myorder_df
-   #does it look like our gapminder data set?
+    #does it look like our gapminder data set?
     #and check with str()
     #anything different compared to str(myorder)
     myorder
