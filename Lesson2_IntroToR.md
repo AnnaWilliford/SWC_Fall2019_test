@@ -39,12 +39,12 @@ We will be working with R using RStudio. This is a piece of software (also known
           For this workshop we need to navigate to `Lesson2_IntroToR` folder. Click three dots icon at the top right corner of the 'Files' tab and navigate to `Desktop/SCW/Lesson2_IntroToR`. When there, click 'More' and select 'Set as working directory'. Notice the change in your console window  - your work with R is now done from `Lesson2_IntroToR` folder.
 
 * Interactive mode. When you type commands in the console window and press 'ENTER', they are executed immediately and the output is displayed. Here are few examples:  
-```
+   ```
    > 3+5
    > sqrt(64) 
-```
+   ```
             
-Symbol `>` means that the R is ready for the next command. If you enter incomplete commands, you will see `+` which means that the system is waiting for you to complete the command. You can always press 'Esc' to return to `>` when stuck with `+` at the prompt.  
+   Symbol `>` means that the R is ready for the next command. If you enter incomplete commands, you will see `+` which means that the system is waiting for you to complete the command. You can always press 'Esc' to return to `>` when stuck with `+` at the prompt.  
 
 There is a handy feature that allows you to enter commands without typing them all out (known as autocomplete). For example, instead of typing `sqrt`, if you type `sq` and press `tab`, you see all words that start with `sq`. You can select the command you are looking for and press `enter`.  
 
@@ -56,7 +56,7 @@ brackets `()`. Type 64 inside the parantheses, hit `enter` and the output is you
    > print("How are you?")
 ```
 
-Notice that when you select `sqrt` and `print` with autocomplete feature, they come with paranthesis, like so: `print()` and `sqrt()`. This is because these commands call functions and functions often need arguments. Function arguments(inputs to the function) are supplied inside the parantheses.
+Notice that when you select `sqrt` and `print` with autocomplete feature, they come with parantheses, like so: `print()` and `sqrt()`. This is because these commands call functions and functions often need arguments. Function arguments(inputs to the function) are supplied inside the parantheses.
    
 * Scripting mode. It is often the case that we would like to reuse our commands. If so, you can type commands in the text editor window. 
 Let's open a new R Script file by clicking the + sign on the top right corner of scripting panel and write our command there, 
