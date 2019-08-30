@@ -398,7 +398,7 @@ Now let's talk about how to take your dataset apart. In general, you can access 
 ```{r}
 ### 1. By position index: Use [] operator
 
-v<-c(1:10)
+v<-c(2:10)
 v
 
 ## see what happens here
