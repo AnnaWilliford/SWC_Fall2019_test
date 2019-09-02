@@ -427,7 +427,7 @@ Let's do this in terms of one of the cooler visualizations directly from the [**
 > >
 > > ```{r ch6b-bubble-plot}
 > > # note that you can save plot to variable and plot later
-> > library("dplyr")
+> > library(dplyr)
 > > bubble <- gapminder %>%
 > >    filter(year == 2007) %>%
 > >    ggplot(aes(x = gdpPercap,
@@ -446,7 +446,7 @@ This is great, but you'll notice that it this plot is static, while the online o
 
 ```{r plotly_demo}
 install.packages("plotly")
-library("plotly#)
+library(plotly)
 
 # plotly has built in support for `ggplot` objects
 bubble <- gapminder %>%
@@ -490,6 +490,3 @@ for (yr in unique(gapminder$year)) {
 
 Very cool. See how easy it is to produce fancy plots in`R`!
 
-Here is a handy cheatsheet produced by [RStudio](https://www.rstudio.com/).
-
-{%pdfhttps://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf%}
