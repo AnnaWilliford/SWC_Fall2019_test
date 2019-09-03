@@ -156,7 +156,7 @@ The help appears in the bottom-right window of the RStudio.
 ### helpfunctions
 
 ?plot
-help(mean)
+help(print)
 
 ```
 
