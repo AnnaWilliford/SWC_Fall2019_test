@@ -165,7 +165,8 @@ When you need to use another package, do these 2 things:
 
 ```
 ### working with additional packages 
-The functionality of R is expanded by R packages that include functions not present in the default installation of R. 
+The functionality of R is expanded by R packages that include functions not present in the default 
+installation of R. 
 When you need to use another package, do these 2 things:
 
 #install package called "knitr"
