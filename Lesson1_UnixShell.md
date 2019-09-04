@@ -29,7 +29,7 @@ $ echo "Welcome to our workshop"
 ```
 `echo` command is read, executed and the output is printed. Only commands known to bash will be executed. Try:
 ```
-$ stop this session 
+$ stop
 ```
 You will see `command not found` message. This means that Bash does not recognize this command.
 
@@ -71,7 +71,7 @@ Let's talk more about the output of `pwd`.
 ![](http://i1.wp.com/mycodinglab.com/wp-content/uploads/2014/01/Linux-File-System-Mycodinglab.jpg)
 
 
-File systems have a hierarchial structure. In a hierarchical file system, the folders and files are displayed in groups, which allows the user to see only the files they’re interested in seeing. For example, in the picture above, the root folder contains folders named `bin`, `etc`, `home`, *etc.* Each of these folders could have hundreds of their own files, but unless they are opened the files are not displayed.
+File systems have a hierarchical structure. In a hierarchical file system, the folders and files are displayed in groups, which allows the user to see only the files they’re interested in seeing. For example, in the picture above, the root folder contains folders named `bin`, `etc`, `home`, *etc.* Each of these folders could have hundreds of their own files, but unless they are opened the files are not displayed.
 
 In GUI the user views the contents of each folder by double-clicking the folder.
 
@@ -123,24 +123,24 @@ If you do not have `Desktop` directory, it will give you an error...
 
 #### **Challenge 1**
 
-Remember, we added `SWC` folder to the Destktop in the beginning of the workshop? Can you now list contents of `SWC` directory from your current directory?
+Remember, we added `SCW` folder to the Destktop in the beginning of the workshop? Can you now list contents of `SCW` directory from your current directory?
 
 #### **Solution:** 
 ```
-ls -F Desktop/SWC/
+ls -F Desktop/SCW/
 ```
 
-In the exercise above, you viewed files in `SWC`  directory while in home directory. But you can change the directory and move directly into `SWC`  directory.
+In the exercise above, you viewed files in `SCW`  directory while in home directory. But you can change the directory and move directly into `SCW`  directory.
 
 ```
 $ cd Desktop
 $ pwd
 
-$ cd SWC
+$ cd SCW
 $ pwd
 
 # you could have done it in one step: 
-$ cd Desktop/SWC
+$ cd Desktop/SCW
 
 $ ls -F
 ```
@@ -154,10 +154,10 @@ $ cd Desktop
 # But try this:
 $ cd ..          #works!
 
-# Why? Let's list ALL files in `SWC` folder. Option -a displays hidden directories as well
+# Why? Let's list ALL files in `SCW` folder. Option -a displays hidden directories as well
 $ ls -F -a
 ```
-`..` is a special directory name meaning “the directory containing this one”, or the parent of the current directory and `.` means “the current working directory”. In our case,  `..` refers to `Desktop` directory and `.` refers to `SWC` directory.
+`..` is a special directory name meaning “the directory containing this one”, or the parent of the current directory and `.` means “the current working directory”. In our case,  `..` refers to `Desktop` directory and `.` refers to `SCW` directory.
 
 
 But `cd` without any arguments takes you ... where?
@@ -185,13 +185,13 @@ $ cd - #takes you BACK one directory, NOT UP!!!
 
 #### **Challenge 2**
 
-Make a diagram of our directory structure (~/Desktop/SWC) and practice navigation commands.  
+Make a diagram of our directory structure (~/Desktop/SCW) and practice navigation commands.  
 a) Find out where you currently are.  
 b) Go to `Data` folder, what is there?  
 c) Go back where you came from (with `cd -` command).  
 d) Go one directory up.  
 e) Try relative and absolute paths.  
-f) Get comfortable navigating across file system - try changing directories into different folders within `SWC` folder and explore there contents. Use `-a` flag, does every directory have hidden files?  
+f) Get comfortable navigating across file system - try changing directories into different folders within `SCW` folder and explore there contents. Use `-a` flag, does every directory have hidden files?  
 
 
 ### 2b. Bash: make new files and directories
