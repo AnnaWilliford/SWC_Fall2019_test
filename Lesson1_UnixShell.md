@@ -49,7 +49,7 @@ $ cp         # copy file
 $ rm         # delete file
 ``` 
 
-You can get an idea about the functionality of bash commands from [this Bash commands cheat sheet](https://learncodethehardway.org/unix/bash_cheat_sheet.pdf)
+You can get an idea about the functionality of Linux commands from [this cheat sheet](https://files.fosswire.com/2007/08/fwunixref.pdf)
 
 
 ### 2a. Bash: navigate through your file system
