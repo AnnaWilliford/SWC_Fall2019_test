@@ -281,15 +281,15 @@ rm -r India Japan
 
 #### **Challenge 3**
 
-After the break we will work with files from the `Data` folder located inside `SWC` folder. Your challenge is to copy `Data` folder to `Lesson1_UnixShell` folder. Make sure you understand the directory structure of `SWC` before we continue.
+After the break we will work with files from the `Data` folder located inside `SCW` folder. Your challenge is to copy `Data` folder to `Lesson1_UnixShell` folder. Make sure you understand the directory structure of `SCW` before we continue.
 
 **Solution**
 
 ```
 cp -r ../Data .
 
-# SWC directory structure
-SWC
+# SCW directory structure
+SCW
   -> Data/
   -> Data_Copy
   -> Lesson1_UnixShell/
@@ -330,7 +330,7 @@ Let's start with looking at some real data.
 You copied `Data` folder into `Lesson1_UnixShell` before the break. Let's see what is in `Data` folder.
 
 How will you do this?
-Start from `SWC` folder.
+Start from `SCW` folder.
 ```
 $ cd Lesson1_UnixShell
 
