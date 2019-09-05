@@ -169,7 +169,7 @@ $ pwd
 
 **Relative vs Absolute Paths**
 
-Navigation with `cd ..` is an example of the relative path - you indicate where you want to go relative to the location you are currently in. in contrast, when you give an absolute path to the folder or file, you will end up there no matter what your current location within file system is.
+Navigation with `cd ..` is an example of the relative path - you indicate where you want to go relative to the location you are currently in. In contrast, when you give an absolute path to the folder or file, you will end up there no matter what your current location within file system is.
 
 ```
 $ pwd  #specifies absolute path to current directory
