@@ -199,9 +199,9 @@ Now that you know how to navigate your file system and list files that are alrea
 You can create, delete, move, copy, rename files and directories using linux commands.
 
 ```
-#Navigate to `SWC` folder
+#Navigate to `SCW` folder
 $ cd   # takes you home no matter where you are at the momemt
-$ cd Desktop/SWC
+$ cd Desktop/SCW
 
 #check you are in the correct place
 $ pwd
