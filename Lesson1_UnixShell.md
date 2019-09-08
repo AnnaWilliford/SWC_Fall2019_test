@@ -527,7 +527,8 @@ cd ../../
 Let's write the commands we used to find the highest life expectancy to text file. We will look at Mexico this time.
 Open your text editor, add the following lines:
 ```
-#!/bin/bash  #path to bash shell that will execute this file
+#!/bin/bash  
+#path to bash shell that will execute this file (no comments are allowed on the line that starts with #!)
 
 #notice path to data file - why?
 cut -f1,3,4 Data/ByCountry/Mexico.txt|sort -nk3|tail -n1 > HighestLE_Mexico.txt
