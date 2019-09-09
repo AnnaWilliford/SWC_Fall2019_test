@@ -53,7 +53,6 @@ Git should be already installed on your machines. If you are on Windows, Git cam
 When we use Git on a new computer for the first time, we need to configure a few things. Below are a few examples of configurations we will set as we get started with Git:
 
 - our name and email address,
-- to colorize our output,
 - what our preferred text editor is,
 - and that we want to use these settings globally (i.e. for every project)
 
@@ -61,9 +60,19 @@ On a command line, Git commands are written as `git verb`, where `verb` is what 
 ```shell
 $ git config --global user.name "Your username"
 $ git config --global user.email "Your email" 
-$ git config --global color.ui "auto"
 
-#add a text editor of your choice 
+###add a text editor of your choice 
+
+##Sublime:  
+#Mac:
+$ git config --global core.editor "/Applications/'Sublime Text.app'/Contents/SharedSupport/bin/subl -n -w"
+
+#Windows: 
+$ git config --global core.editor "'C:\Program Files\Sublime Text 3\sublime_text.exe' -n -w"
+
+#If it is on your path already:
+git config --global core.editor "subl -w -n"
+
 #Mac: Text Wrangler
 $ git config --global core.editor "edit -w"
 
@@ -71,7 +80,7 @@ $ git config --global core.editor "edit -w"
 $ git config --global core.editor "notepad"
 
 #Windows: notepad++
-$ git config --global core.editor "C:/Program Files (x86)/Notepad++/notepad++.exe"
+$ git config --global core.editor "'C:\Program Files (x86)\Notepad++\notepad++.exe'"
 
 #Linux
 $ git config --global core.editor "nano"
