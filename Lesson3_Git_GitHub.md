@@ -106,51 +106,43 @@ We will explore some of them next.
 ## 3. Track your documents with Git
 
 We are now ready to use Git.
-To start with, let's make a new folder `git_test` on your Desktop, outside `SCW` directory.
-
-Suppose you started working on your thesis. You create a folder `Thesis` inside `git_test` . 
-```shell
-#go to git_test
-cd git_test
-
-#make folder
-$ mkdir Thesis
-
-#go into Thesis folder
-$ cd Thesis
-
-#check Thesis contents
-$ ls -a 
-./  ../ 
+To start with, let's make a new folder `project_git` on your Desktop, outside `SCW` directory.
+```bash
+cd ~/Desktop
+mkdir project_git
 ```
-At this point we have the expected output. Let's make a new file in this folder, say a file for thesis notes.
+No you create a file, `notes.txt` inside `project_git`. 
+
 ```shell
-$ echo "Chapeter 1 notes" > notes.txt
+#go to project_git
+cd project_git
 
-$ ls -a
-./  ../  notes.txt
+#make notes.txt with this content
+echo "My notes about git" > notes.txt
 
-$ cat notes.txt
+#check project_git contents
+$ ls -aF 
+./  ../ notes.txt
 ```
 We can ask now if our new file, `notes.txt` is being tracked. We can do this with `git status` command
 ```shell
 $ git status
 fatal: Not a git repository (or any of the parent directories): .git
 ```
-This message means that `Thesis` folder is not under the control of Git, none of the documents within this folder are being tracked.
+This message means that `project_git` folder is not under the control of Git, none of the documents within this folder are being tracked.
 
-To place a folder under Git control, we need to initialize out `Thesis` folder.
+To place a folder under Git control, we need to initialize `project_git` folder.
 
 ```shell
-#check that you are in Thesis
+#check that you are in project_git
 $ pwd
 
-#initialize Thesis directory with Git
+#initialize project_git directory with Git
 $ git init
 Initialized empty Git repository in ...
 
 #check content
-$ ls -a
+$ ls -aF
 ./  ../  .git/  notes.txt
 ```
 The folder that contains .git directory is called ***repository***
@@ -169,7 +161,12 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-You can see that initializing a directory makes it visible to Git. Now Git tells us what files are in the directory and what is their status. In our case, Git says that there is notes.txt file and it is not tracked. Git also tells us that we need to use `git add` command to start tracking this file.
+You can see that initializing a directory makes it visible to Git. Now Git tells us what files are in the directory and what is their status. 
+
+Here is the main idea of how we track changes with Git:  
+![](http://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
+
+In our case, Git says that there is `notes.txt` file and it is untracked. Git also tells us that we need to use `git add` command to start tracking this file.
 ```
 $ git add notes.txt
 
@@ -183,7 +180,7 @@ Changes to be committed:
 
         new file:   notes.txt
 ```
-The current version of `notes.txt` is now ready (or staged) to be recorded by Git. To record the current version of notes.txt, `git commit` command is used
+The current version of `notes.txt` is now ready (or staged) to be recorded by Git. To record the current version of `notes.txt`, `git commit` command is used
 ```
 #commit changes
 $ git commit -m "first note"
@@ -194,9 +191,11 @@ $ git commit -m "first note"
 ```
 When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a **commit** (or revision) and its short identifier is 851e745 (Your commit may have another identifier.)
 
-We use the -m flag (for “message”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the -m option, Git will launch nano (or whatever other editor we configured as core.editor) so that we can write a longer message.
+We use the -m flag (for “message”) to record a short, descriptive, and specific comments that will help us remember later on what we did and why. If we just run `git commit` without the -m option, Git will launch Sublime editor (or whatever other editor you configured as core.editor) so that we can write a longer message.
 
 Good commit messages start with a brief (<50 characters) summary of changes made in the commit. If you want to go into more detail, add a blank line between the summary line and your additional notes.
+
+To change your commit message, use `git commit --amend`
 
 Now run `git status` again. 
 ```
@@ -233,7 +232,7 @@ In summary, here are the steps that must be completed to track changes in your d
 
  **Challenge 3.1:**
 ```
- Open notes.txt in text editor and add a line of text to it. 
+ Open notes.txt in text editor and add steps that !!!!!. 
  Save your changes and track your changes with Git.
 ```
 >**Solution**
