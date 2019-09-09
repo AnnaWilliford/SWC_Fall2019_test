@@ -61,7 +61,7 @@ On a command line, Git commands are written as `git verb`, where `verb` is what 
 $ git config --global user.name "Your username"
 $ git config --global user.email "Your email" 
 
-###add a text editor of your choice 
+###add a text editor of your choice (we use Sublime in our workshop)
 
 ##Sublime:  
 #Mac:
@@ -85,7 +85,7 @@ $ git config --global core.editor "'C:\Program Files (x86)\Notepad++\notepad++.e
 #Linux
 $ git config --global core.editor "nano"
 ```
-The four commands we just ran above only need to be run once: the flag --global tells Git to use the settings for every project, in your user account, on this computer.
+The commands we just ran above only need to be run once: the flag --global tells Git to use the settings for every project, in your user account, on this computer.
 
 You can check your settings at any time:
 ```shell
@@ -106,7 +106,7 @@ We will explore some of them next.
 ## 3. Track your documents with Git
 
 We are now ready to use Git.
-To start with, let's make a new folder `git_test` on your Desktop, outside `SWC_spring2019` directory.
+To start with, let's make a new folder `git_test` on your Desktop, outside `SCW` directory.
 
 Suppose you started working on your thesis. You create a folder `Thesis` inside `git_test` . 
 ```shell
