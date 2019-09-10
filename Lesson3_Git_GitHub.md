@@ -307,7 +307,8 @@ Let's try it.
 Copy notes.txt from project_git folder to SCW/Lesson3_Git_GitHub folder. 
 Add and commit this new file to Git.
 
-NOTE: You cannot copy project_git repository to SCW/Lesson3_Git_GitHub because SCW is already a repository. There should be only one .git folder for every repository.
+NOTE: You cannot copy project_git repository to SCW/Lesson3_Git_GitHub because 
+SCW is already a repository. There should be only one .git folder for every repository.
 ```
  
 ## 4. Accessing older versions
