@@ -239,11 +239,10 @@ In summary, here are the steps that must be completed to track changes in your d
 ```
 >**Solution**
 >
-> Open note.txt, add text, save and close.
-> $ subl note.txt
-> You can see your new note.txt with 
-> $ cat notes.txt
-> 
+> Open `notes.txt` (with `subl notes.txt`), add text, save and close.  
+>
+> You can see your new `notes.txt` with `cat` command:   
+> $ cat notes.txt  
 > ```
 > My notes about git:
 > 1. git init
@@ -251,18 +250,18 @@ In summary, here are the steps that must be completed to track changes in your d
 > 3. git commit -m "added git commands"
 > ```
 > 
-> $ git status
-> On branch master
-> Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+> $ git status  
+> On branch master  
+> Changes not staged for commit:  
+> (use "git add <file>..." to update what will be committed)  
+> (use "git checkout -- <file>..." to discard changes in working directory)  
 >
->    modified:   notes.txt
+>    modified:   notes.txt  
 >
-> no changes added to commit (use "git add" and/or "git commit -a")
+> no changes added to commit (use "git add" and/or "git commit -a")  
 >
-> $ git add notes.txt
-> $ git commit -m "added git commands"
+> $ git add notes.txt  
+> $ git commit -m "added git commands"  
 
 Now, run `git log`.  The output of `git log` tells you the history of your changes. Your commit messages are very important, in case you want to restore an old version of the document, they will help you to pick out the version you want.
 
