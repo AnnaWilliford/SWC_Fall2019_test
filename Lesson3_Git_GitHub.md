@@ -71,7 +71,7 @@ $ git config --global core.editor "/Applications/'Sublime Text.app'/Contents/Sha
 $ git config --global core.editor "'C:\Program Files\Sublime Text 3\sublime_text.exe' -n -w"
 
 #If it is on your path already:
-git config --global core.editor "subl -w -n"
+$ git config --global core.editor "subl -w -n"
 
 #Mac: Text Wrangler
 $ git config --global core.editor "edit -w"
@@ -108,17 +108,17 @@ We will explore some of them next.
 We are now ready to use Git.
 To start with, let's make a new folder `project_git` on your Desktop, outside `SCW` directory.
 ```bash
-cd ~/Desktop
-mkdir project_git
+$ cd ~/Desktop
+$ mkdir project_git
 ```
-No you create a file, `notes.txt` inside `project_git`. 
+Now create a file, `notes.txt` inside `project_git`. 
 
 ```shell
 #go to project_git
-cd project_git
+$ cd project_git
 
 #make notes.txt with this content
-echo "My notes about git" > notes.txt
+$ echo "My notes about git:" > notes.txt
 
 #check project_git contents
 $ ls -aF 
@@ -191,11 +191,11 @@ $ git commit -m "first note"
 ```
 When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a **commit** (or revision) and its short identifier is 851e745 (Your commit may have another identifier.)
 
-We use the -m flag (for “message”) to record a short, descriptive, and specific comments that will help us remember later on what we did and why. If we just run `git commit` without the -m option, Git will launch Sublime editor (or whatever other editor you configured as core.editor) so that we can write a longer message.
+We use the -m flag (for “message”) to record a short, descriptive, and specific comment that will help us remember later on what we did. If we just run `git commit` without the -m option, Git will launch Sublime editor (or whatever other editor you configured as core.editor) so that we can write a longer message.
 
 Good commit messages start with a brief (<50 characters) summary of changes made in the commit. If you want to go into more detail, add a blank line between the summary line and your additional notes.
 
-To change your commit message, use `git commit --amend`
+To change your commit message, you can use `git commit --amend`.
 
 Now run `git status` again. 
 ```
@@ -232,18 +232,25 @@ In summary, here are the steps that must be completed to track changes in your d
 
  **Challenge 3.1:**
 ```
- Open notes.txt in text editor and add steps that !!!!!. 
+ Open notes.txt in text editor and add commands that you need to execute in order to:
+ 1. turn a new folder into git repository, 
+ 2. track changes to a file with git. 
  Save your changes and track your changes with Git.
 ```
 >**Solution**
 >
 > Open note.txt, add text, save and close.
+> $ subl note.txt
 > You can see your new note.txt with 
 > $ cat notes.txt
 > 
-> Chapter 1 notes
-> Chapter 2 notes
-
+> ```
+> My notes about git:
+> 1. git init
+> 2. git add -all
+> 3. git commit -m "added git commands"
+> ```
+> 
 > $ git status
 > On branch master
 > Changes not staged for commit:
@@ -252,24 +259,24 @@ In summary, here are the steps that must be completed to track changes in your d
 >
 >    modified:   notes.txt
 >
->no changes added to commit (use "git add" and/or "git commit -a")
+> no changes added to commit (use "git add" and/or "git commit -a")
 >
 > $ git add notes.txt
-> $ git commit -m "added chapter2 notes"
+> $ git commit -m "added git commands"
 
 Now, run `git log`.  The output of `git log` tells you the history of your changes. Your commit messages are very important, in case you want to restore an old version of the document, they will help you to pick out the version you want.
 
-Your versions (or commits) have unique identifiers. In addition, the most recent version can be identified by `HEAD`. You can see differences betwee any 2 versions by using `git diff` command:
+Your versions (or commits) have unique identifiers. In addition, the most recent version can be identified by `HEAD`. You can see differences between any 2 versions by using `git diff` command:
 ```shell
 #you can specify only first few characters of the commit identifier.
 $ git diff 851e745b2 HEAD notes.txt
 ```
  
-Now, let's see how to turn an existing directory into git repository. You might want to track files for some of your existing projects. Maybe for `SWC_spring2019` directory? How will you place this directory under Git control?
+So far, we worked with a folder we created from scratch. Now, let's see how to turn an existing directory into git repository. You might want to track files for some of your existing projects. Maybe for `SCW` directory? How will you place this directory under Git control?
 
 ```
-#Go to SWC_spring2019
-$ cd ~/Desktop/SWC_spring2019
+#Go to SCW
+$ cd ~/Desktop/SCW
 
 #initialize
 $ git init
