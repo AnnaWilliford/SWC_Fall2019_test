@@ -230,11 +230,11 @@ In summary, here are the steps that must be completed to track changes in your d
 
 
 
- **Challenge 3.1:**
+ **Challenge**
 ```
  Open notes.txt in text editor and add commands that you need to execute in order to:
  1. turn a new folder into git repository, 
- 2. track changes to a file with git. 
+ 2. track changes to a file with Git. 
  Save your changes and track your changes with Git.
 ```
 >**Solution**
@@ -287,7 +287,7 @@ $ git status
 $ git add .
 
 #commit changes 
-$ git commit -m "added SWC_spring2019 directory"
+$ git commit -m "init with Git"
 
 #check commit history
 $ git log
@@ -302,14 +302,12 @@ $ git show --name-only 1e228d70f
 As you continue working on this project, you will be adding new directories and files to it.
 Let's try it.
 
-**Challenge 3.2**
+**Challenge**
 ```
-Make a new directory `git_github` in `SWC_spring2019`. 
-Make a file called git_steps.txt inside `git_github`. 
-Record `git` commands you must use to start tracking your changes.
-Save this file and commit `git_github` directory to Git.
+Copy notes.txt from project_git folder to SCW/Lesson3_Git_GitHub folder. 
+Add and commit this new file to Git.
 
-NOTE:`git init` should only be run one time in the root directory of your project. 
+NOTE: You cannot copy project_git repository to SCW/Lesson3_Git_GitHub because SCW is already a repository. There should be only one .git folder for every repository.
 ```
  
 ## 4. Accessing older versions
