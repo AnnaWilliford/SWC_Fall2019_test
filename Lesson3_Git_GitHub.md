@@ -117,8 +117,17 @@ Now create a file, `notes.txt` inside `project_git`.
 #go to project_git
 $ cd project_git
 
-#make notes.txt with this content
-$ echo "My notes about git:" > notes.txt
+#make empty notes.txt
+$ touch notes.txt
+
+#open with Sublime:
+$ subl notes.txt
+
+#Add test: "My notes about git:"
+#Save and close.
+
+#Check contens of this file
+$ cat notes.txt
 
 #check project_git contents
 $ ls -aF 
@@ -165,6 +174,7 @@ You can see that initializing a directory makes it visible to Git. Now Git tells
 
 Here is the main idea of how we track changes with Git:  
 ![](http://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
+![](Git_stages.png)
 
 In our case, Git says that there is `notes.txt` file and it is untracked. Git also tells us that we need to use `git add` command to start tracking this file.
 ```
