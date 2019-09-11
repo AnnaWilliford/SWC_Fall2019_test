@@ -156,6 +156,8 @@ $ ls -aF
 ```
 The folder that contains .git directory is called ***repository***
 
+![](Git_stages.png)
+
 Let's try `git status` command now.
 ```
 $ git status
@@ -170,13 +172,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-You can see that initializing a directory makes it visible to Git. Now Git tells us what files are in the directory and what is their status. 
-
-Here is the main idea of how we track changes with Git:  
-![](http://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
-![](Git_stages.png)
-
-In our case, Git says that there is `notes.txt` file and it is untracked. Git also tells us that we need to use `git add` command to start tracking this file.
+You can see that initializing a directory makes it visible to Git. Now Git tells us what files are in the directory and what is their status. In our case, Git says that there is `notes.txt` file and it is untracked. Git also tells us that we need to use `git add` command to start tracking this file.
 ```
 $ git add notes.txt
 
@@ -234,10 +230,6 @@ In summary, here are the steps that must be completed to track changes in your d
 - [x] Initialize your folder with `git init` command. This is done only **one** time for every new parent directory
 - [x] Prepare new/modified files for saving(committing) with `git add` command
 - [x] Create a permanent copy of your new/modified file with `git commit -m "message" `
-
-
-![](http://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
-
 
 
  **Challenge**
