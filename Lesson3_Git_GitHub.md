@@ -275,8 +275,102 @@ Your versions (or commits) have unique identifiers. In addition, the most recent
 #you can specify only first few characters of the commit identifier.
 $ git diff 851e745b2 HEAD notes.txt
 ```
- 
-So far, we worked with a folder we created from scratch. Now, let's see how to turn an existing directory into git repository. You might want to track files for some of your existing projects. Maybe for `SCW` directory? How will you place this directory under Git control?
+
+
+## 4. Accessing older versions
+
+The clear advantage of tracking your documents with Git is that you can always go back to the previous version. Let's see how this works.
+
+The output of `git log` provides all the information you need to retrieve the older version of the document.
+
+In our case, we have two versions of `notes.txt`:
+
+```
+$ git log 
+
+commit 0d19d524b547467f2eaccb4840449ce0d9e02588 (HEAD -> master)
+Author: =AnnaWilliford <awillifo@uta.edu>
+Date:   Wed Sep 11 12:18:14 2019 -0500
+
+    added git commands
+
+commit 760f2f26c22ff8f7838a2e05154e8b7a5703111c
+Author: =AnnaWilliford <awillifo@uta.edu>
+Date:   Wed Sep 11 11:50:39 2019 -0500
+
+    added notes.txt
+
+```
+
+Suppose that you want the original version of `notes.txt`. How would you do that?
+
+To restore any of the original versions of a file, you use `git checkout` command:
+```
+#general syntax
+$ git checkout <commitID> <file>
+```
+
+If we want the original `notes.txt`:
+```
+#see what commitID is associated with the original version
+git log --oneline
+
+#the commit that includes original file has message "added notes.txt" (or whatever you used when you committed the change)
+$ git checkout ad91ea0aab notes.txt
+
+#Note: your commitID will be different
+```
+
+Now let's make sure that we have original version of `notes.txt`
+```
+#view restored version
+$ cat notes.txt
+
+#restored version has not been committed, see HEAD commit
+$ git log
+
+#see what to do next
+$ git status
+
+#If you decide to go ahead with restoring file, commit the change since checkout command places file in the staging area (no need for 'git add')
+
+$ git commit -m "changed to the original notes.txt version"
+
+$ git status
+
+#see HEAD now
+$ git log
+```
+
+If you run git checkout, but would like to cancel restoring the old version, do this before committing original version:
+```
+#unstage restored file
+$ git reset HEAD notes.txt 
+
+#return to latest version before you attempted to restore the file
+$ git checkout -- notes.txt
+
+#see current file
+$ cat notes.txt
+```
+
+If you want to return to a previous snapshot (version) of your project and remove all commits after a certain commit:
+
+```
+#revert to a state identified by <commitID>
+$ git reset <commitID>
+
+#check commit history
+$ git log
+```
+
+## 6. GitHub: share your repository with the world
+
+So far, our work was restricted to the local machine. But if you want to share your repositories with your colleagues, it would be nice to have a central place where everyone could make their repositories available for comments/suggestions/collaborations. Github is a service that allows us to do that. It is also nice to have access to your project from anywhere, not just from your own computer.   
+
+You have SCW directory on the desktop with all the files you created during the workshop. Let's add SCW folder to your GitHub account. How would you do that?  
+
+Notice that so far, we worked with a folder we created from scratch. Now, let's see how to turn an existing directory (`SCW`) into git repository. How will you place this directory under Git control?
 
 ```
 #Go to SCW
@@ -289,118 +383,45 @@ $ git init
 $ git status
 
 #prepare files for tracking
-$ git add .
+$ git add --all
 
 #commit changes 
-$ git commit -m "init with Git"
+$ git commit -m "init SCW with Git"
 
 #check commit history
 $ git log
 ```
-Now every file in this directory is being tracked.
+Now every file in this directory is being tracked.   
 
 Notice that we added multiple folders and files in the same commit. If you want to know what files were included in this commit:
 ```
 # print the list of files that are part of a given commit
 $ git show --name-only 1e228d70f
 ```
-As you continue working on this project, you will be adding new directories and files to it.
-Let's try it.
 
-**Challenge**
+But we are missing something... Remember our `project_git` folder we created on the `Desktop`? We would like to add the contents of `project_git` to `SCW/Lesson3_Git_GitHub folder`. We can just copy `notes.txt` from `project_git` folder to `SCW/Lesson3_Git_GitHub` folder.  
+**NOTE** Every git repository can only have **ONE** .git folder in the root directory of the project. We cannot copy `project git` folder into `SCW` folder because each contains `.git`.  The commit history for `project_git` foder will not be present in commit history of `SCW`. Just think about `notes.txt` as a new file you decided to add to `SCW` folder.
 ```
-Copy notes.txt from project_git folder to SCW/Lesson3_Git_GitHub folder. 
-Add and commit this new file to Git.
+$ cp ~/Desktop/project_git/notes.txt Lesson3_Git_GitHub/
+$ git add -all
+$ git commit -m "added notes.txt to Lesson3_Git_GitHub"
 
-NOTE: You cannot copy project_git repository to SCW/Lesson3_Git_GitHub because 
-SCW is already a repository. There should be only one .git folder for every repository.
-```
- 
-## 4. Accessing older versions
-
-The clear advantage of tracking your documents with Git is that you can always go back to the previous version. Let's see how this works.
-
-The output of `git log` provides all the information you need to retrieve the older version of the document.
-
-In our case, we do not have multiple versions of the same document, so let's modify our git_steps.txt and add a note to it:
-
-```
-$ echo "Use git init only one time for every project" >>git_steps.txt
-
-$ cat git_steps.txt
-
-$ git add .
-$ git commit -m "added note to git_steps.txt"
-
-#view latest version
-$ cat git_steps.txt
-```
-
-Now, this is our second version of git_steps.txt. Our first version was stored when we first created the file, and our second version when we added a new line to it.
-
-Suppose that some time later, you want the original version of git_steps.txt. How would you do that?
-
-To restore any of the original versions of the document, you use `git checkout` command:
-```
-#general syntax
-$ git checkout <commitID> <file>
-```
-
-If we want the original git_steps.txt:
-```
-#see what commitID is associated with the original version
-git log --oneline
-
-#the commit that includes original file has message "added git_github directory" (or whatever you used when you committed the change)
-$ git checkout ad91ea0aab git_steps.txt
-```
-
-Now let's make sure that we have original version of git_steps.txt
-```
-#view restored version
-$ cat git_steps.txt
-
-#restored version has not been committed, see HEAD commit
-$ git log
-
-#see what to do next
+#make sure that everything is up to date:
 $ git status
-
-#If you decide to go ahead with restoring file, commit the change since checkout command places file in the staging area (no need for 'git add')
-
-$ git commit -m "changed to the original git_steps.txt version"
-
-$ git status
-
-#see HEAD now
-$ git log
-
-#if you run `git checkout, but would like to cancel restoring the old version:
-#unstage restored file
-$ git reset HEAD git_steps.txt 
-
-#return to latest version before you attempted to restore the file
-$ git checkout -- git_steps.txt
-
-#see current file
-$ cat git_steps.txt
 ```
+Now out `SCW` is ready to be added to GitHub.
 
-## 6. GitHub: share your repository with the world
+**If you have not created Github account, please go to github.com and do it now.**
 
-So far, our work was restricted to the local machine. But if you want to share your repositories with your colleagues, it would be nice to have a central place where everyone could make their repositories available for comments/suggestions/collaborations. Github is a service that allows us to do that. 
-
-If you have not created Github account, please go to github.com and do it now. 
-
-Now we want to create repository that will be a remote copy of our local `SWC_spring2019` repository. 
+Now we want to create repository that will be a remote copy of our local `SCW` repository. 
 ```
 #from your github account:
 Click on 'new repository'
-Repository name: 'SWC_spring2019'
+Repository name: 'SCW'
 Type: public
 Click on 'create repository'
 ```
-You have just created remote empty `SWC_spring2019` repository. This repository has a specific identifier URL associated with it. We now let our local machine know that we have a remote location for our local repository.
+You have just created remote empty `SCW` repository. This repository has a specific identifier URL associated with it. We now let our local machine know that we have a remote location for our local repository.
 ```
 #on your local machine
 $ git remote add origin URL
