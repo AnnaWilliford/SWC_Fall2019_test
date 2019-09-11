@@ -157,6 +157,9 @@ $ ls -aF
 The folder that contains .git directory is called ***repository***
 
 ![](Git_stages.png)
+![](https://github.com/uta-carpentries/SWC_Fall2019/Git_stages.png)
+
+  
 
 Let's try `git status` command now.
 ```
