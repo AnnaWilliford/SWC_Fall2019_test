@@ -7,7 +7,7 @@ output: html_document
 Software Carpentry Workshop: Lesson4: R programming
 ===
 SCW workshop, September 2019  
-Instructors: Balan Ramesh  
+Instructor: Balan Ramesh  
 Adapted from [Software Carpentry](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html)
 
 Time: 1.5 hours  
