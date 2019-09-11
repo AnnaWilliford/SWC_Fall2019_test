@@ -364,7 +364,7 @@ $ git reset <commitID>
 $ git log
 ```
 
-## 6. GitHub: share your repository with the world
+## 5. GitHub: share your repository with the world
 
 So far, our work was restricted to the local machine. But if you want to share your repositories with your colleagues, it would be nice to have a central place where everyone could make their repositories available for comments/suggestions/collaborations. Github is a service that allows us to do that. It is also nice to have access to your project from anywhere, not just from your own computer.   
 
@@ -399,17 +399,7 @@ Notice that we added multiple folders and files in the same commit. If you want 
 $ git show --name-only 1e228d70f
 ```
 
-But we are missing something... Remember our `project_git` folder we created on the `Desktop`? We would like to add the contents of `project_git` to `SCW/Lesson3_Git_GitHub folder`. We can just copy `notes.txt` from `project_git` folder to `SCW/Lesson3_Git_GitHub` folder.  
-**NOTE** Every git repository can only have **ONE** .git folder in the root directory of the project. We cannot copy `project git` folder into `SCW` folder because each contains `.git`.  The commit history for `project_git` foder will not be present in commit history of `SCW`. Just think about `notes.txt` as a new file you decided to add to `SCW` folder.
-```
-$ cp ~/Desktop/project_git/notes.txt Lesson3_Git_GitHub/
-$ git add -all
-$ git commit -m "added notes.txt to Lesson3_Git_GitHub"
-
-#make sure that everything is up to date:
-$ git status
-```
-Now out `SCW` is ready to be added to GitHub.
+Now our `SCW` is ready to be added to GitHub.
 
 **If you have not created Github account, please go to github.com and do it now.**
 
@@ -425,14 +415,16 @@ You have just created remote empty `SCW` repository. This repository has a speci
 ```
 #on your local machine
 $ git remote add origin URL
+#in my case:
+#$ git remote add origin git@github.com:AnnaWilliford/SCW.git
 ```
 The name origin is a local nickname for your remote repository. We could use something else if we wanted to, but origin is by far the most common choice.
 
-Once the nickname origin is set up, this command will push the changes from our local repository to the repository on GitHub:
+Once the nickname origin is set up, `git push` command will push the changes from our local repository to the repository on GitHub:
 ```
 $ git push -u origin master
 ```
-This is it! You just made your local '' repository available on Github to everyone. You are now in position to share your work and collaborate with others. How cool is this?
+This is it! You just made your local 'SCW' repository available on Github to everyone. You are now in position to share your work and collaborate with others. How cool is this?
 
 ---
 
@@ -441,17 +433,31 @@ This is it! You just made your local '' repository available on Github to everyo
 
 ---
 
-**Challenge 6.1**
+**Challenge**
 ```
-Suppose you want to add another file to your repository. 
-Take any file outside SWC_spring2019 directory
-and add it to your local repository and then push it to Github.
+Suppose you want to add another file to your repository.
+Copy notes.txt from Desktop/project_git folder to SCW/Lesson3_Git_GitHub folder. Add this file to your local repository (git add, git commit)
+and then push (git push) it to GitHub.
 
-
+**NOTE** You can only have one .git folder in the root directory of the project. Do not copy project_git folder, just notes.txt
 ```
+> **Solution**
+>  
+> ```
+> #make sure you are inside SCW directory on your local machine
+> $ cp ~/Desktop/project_git/notes.txt Lesson3_Git_GitHub/
+> $ git add -all
+> $ git commit -m "added notes.txt to Lesson3_Git_GitHub"
+>
+> #make sure that everything is up to date:
+> $ git status
+> 
+> #push to GitHub
+> $ git push
+> ```
 
 
-## 7. Working with and/or contributing to someone else's projects
+## 6. Working with and/or contributing to someone else's projects
 
 
 ![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/Github_fork.png)
