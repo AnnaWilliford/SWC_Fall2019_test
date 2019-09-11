@@ -240,7 +240,7 @@ In summary, here are the steps that must be completed to track changes in your d
  Open notes.txt in text editor and add commands that you need to execute in order to:
  1. turn a new folder into git repository, 
  2. track changes to a file with Git. 
- Save your changes and track your changes with Git.
+ Save your changes and commit your changes with Git. You can use "added git commands" as your commit message 
 ```
 >**Solution**
 >
