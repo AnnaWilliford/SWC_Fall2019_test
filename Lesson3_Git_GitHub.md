@@ -475,34 +475,34 @@ You can contribute to whatever project you like. Suppose you would like to add a
 Steps for making pull requests (or PRs):
 
 - go to the project you want to contribute to
-  (https://github.com/uta-carpentries/SWC_spring2019_lessons)
+  (https://github.com/uta-carpentries/SWC_Fall2019)
 
 - copy the project to your Github account by clicking `fork` button on the top right corner of the page
 
-You should now have a new repository called `SWC_spring2019_lessons` in **YOUR** account. This is great, you can copy other projects/repositories to your Github account!
+You should now have a new repository called `SWC_Fall2019` in **YOUR** account. This is great, you can copy other projects/repositories to your Github account!
 
-You can also copy remote repository to the local machine, say to the Desktop. From your local terminal, type:
+You can also use `git clone` command to copy a remote repository to your local machine, say to the Desktop. From your local terminal, type:
 ```
-$ git clone https://github.com/YourUsername/SWC_spring2019_lessons.git ~/Desktop/SWC_spring2019_lessons.git
+$ git clone https://github.com/YourUsername/SWC_Fall2019.git ~/Desktop/SWC_Fall2019.git
 ```
 You now have all lessons from this workshop both on your Github account and on your local machine!
 
-See, you have access to any public repository on Github in a similar way.
+You can have access to any public repository on Github in a similar way.
 
 Now, what is even better, you can contribute to the project you forked/cloned(copied) by suggesting changes to the documents in the repository. If, for example, you find a better way to explain some topic we were covering in this workshop, you can make changes to the lessons locally on your machine and then send a `pull request` to the owner of repository. The owner will review your changes and decide to accept(merge) proposed changes or reject them.
 
 Want to try?
-Go to `SWC_spring2019_lessons` repo on your local machine and open a new topic branch for the project:
+Go to `SWC_Fall2019` repo on your local machine and open a new topic branch for the project:
 ```
 $ git checkout -b YourName
 ```
 You can now modify and add anything you want in this project. When ready with your final contributions, you will be able to send your pull request.
 
-For example, add your created new file, say "Python_Basics_NewChallenge"
+For example, add your created new file, say `R_Basics_NewChallenge.txt`
 ```
 #create new file
-$ git add .
-$ git commit -m "add new file"
+$ git add --all
+$ git commit -m "add new challenge "
 
 #Push your topic branch up to your fork:
 $ git push origin YourName
