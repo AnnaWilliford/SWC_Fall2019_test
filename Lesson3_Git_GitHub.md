@@ -123,7 +123,7 @@ $ touch notes.txt
 #open with Sublime:
 $ subl notes.txt
 
-#Add test: "My notes about git:"
+#Add text: "My notes about git:"
 #Save and close.
 
 #Check contens of this file
@@ -213,7 +213,7 @@ $ git status
 On branch master
 nothing to commit, working tree clean
 ```
-Everything is up to date!
+Everything is up-to-date!
 
 You can check the history of your commits:
 ```
@@ -225,7 +225,7 @@ Date:   Thu Nov 2 13:29:28 2017 -0500
 
     first note 
     
-#or for a faster view
+#or for a condensed view
 $ git log --oneline
 ```
 In summary, here are the steps that must be completed to track changes in your documents with Git.
@@ -237,7 +237,7 @@ In summary, here are the steps that must be completed to track changes in your d
 
  **Challenge**
 ```
- Open notes.txt in text editor and add commands that you need to execute in order to:
+ Open notes.txt in text editor and record commands that you need to execute in order to:
  1. turn a new folder into git repository, 
  2. track changes to a file with Git. 
  Save your changes and commit your changes with Git. You can use "added git commands" as your commit message 
@@ -416,7 +416,7 @@ You have just created remote empty `SCW` repository. This repository has a speci
 #on your local machine
 $ git remote add origin URL
 #in my case:
-#$ git remote add origin git@github.com:AnnaWilliford/SCW.git
+#$ git remote add origin https://github.com/AnnaWilliford/SCW.git
 ```
 The name origin is a local nickname for your remote repository. We could use something else if we wanted to, but origin is by far the most common choice.
 
@@ -424,7 +424,7 @@ Once the nickname origin is set up, `git push` command will push the changes fro
 ```
 $ git push -u origin master
 ```
-This is it! You just made your local 'SCW' repository available on Github to everyone. You are now in position to share your work and collaborate with others. How cool is this?
+This is it! You just made your local 'SCW' repository available on GitHub to everyone. You are now in position to share your work and collaborate with others. How cool is this?
 
 ---
 
@@ -461,7 +461,7 @@ and then push (git push) it to GitHub.
 If you find an interesting repository on GitHub, you can copy it to your own GitHub account or to your own computer. This is also the first step to take if you want to conribute to projects created by other people.   
 
 Here is a repository that might be of interest to you:  
-github.com/uta-carpentries/SWC_Fall2019 
+https://github.com/uta-carpentries/SWC_Fall2019
 
 This repository contains Lessons for this workshop. You can just visit our repository and remind yourselves about what we did or you can copy this repository to your own GitHub account.  
 
@@ -474,69 +474,6 @@ You should now have a new repository called `SWC_Fall2019` in **YOUR** account. 
 ```
 $ git clone https://github.com/uta-carpentries/SWC_Fall2019.git ~/Desktop/SWC_Fall2019.git
 ```
-You now have all lessons from this workshop both on your Github account and on your local machine!  
-You can have access to any public repository on Github in a similar way.
+You now have all lessons from this workshop both in your GitHub account and on your local machine!  
+You can have access to any public repository on GitHub in a similar way.
 
-
-## 6. Collaboration through GitHub
-
-
-![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/Github_fork.png)
-
----
-
-![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/Github_pullRequest.png)
-
----
-
-This part of the lesson is modified from this [Source](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
-
-You can contribute to whatever project you like. Suppose you would like to add a new feature to someone else's project. You can always propose your changes - in Github language this is known as  `pull request`.
-
-Steps for making pull requests (or PRs):
-
-- go to the project you want to contribute to
-  (https://github.com/uta-carpentries/SWC_Fall2019)
-
-- copy the project to your Github account by clicking `fork` button on the top right corner of the page
-
-You should now have a new repository called `SWC_Fall2019` in **YOUR** account. This is great, you can copy other projects/repositories to your Github account!
-
-You can also use `git clone` command to copy a remote repository to your local machine, say to the Desktop. From your local terminal, type:
-```
-$ git clone https://github.com/YourUsername/SWC_Fall2019.git ~/Desktop/SWC_Fall2019.git
-```
-You now have all lessons from this workshop both on your Github account and on your local machine!
-
-You can have access to any public repository on Github in a similar way.
-
-Now, what is even better, you can contribute to the project you forked/cloned(copied) by suggesting changes to the documents in the repository. If, for example, you find a better way to explain some topic we were covering in this workshop, you can make changes to the lessons locally on your machine and then send a `pull request` to the owner of repository. The owner will review your changes and decide to accept(merge) proposed changes or reject them.
-
-Want to try?
-Go to `SWC_Fall2019` repo on your local machine and open a new topic branch for the project:
-```
-$ git checkout -b YourName
-```
-You can now modify and add anything you want in this project. When ready with your final contributions, you will be able to send your pull request.
-
-For example, add your created new file, say `R_Basics_NewChallenge.txt`
-```
-#create new file
-$ git add --all
-$ git commit -m "add new challenge "
-
-#Push your topic branch up to your fork:
-$ git push origin YourName
-```
-Go to the forked repo on your GitHub account and click on the green `compare & pull request` button
-
-A bit more terminology here: 
-`base fork` is the repository you'd like to merge changes into. Use the `base branch` drop-down menu to select the branch of the upstream repository you'd like to merge changes into.
-
-Use the `head fork` drop-down menu to select your fork, then use the compare branch drop-down menu to select the branch you made your changes in.
-
-Type a title and description for your pull request.
-
-Click `Create pull request`
-
-The owner of repository will get notification about pull request and will review your proposed changes.
