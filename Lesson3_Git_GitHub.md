@@ -456,8 +456,29 @@ and then push (git push) it to GitHub.
 > $ git push
 > ```
 
+## 6. Working with repositories created by others 
 
-## 6. Working with and/or contributing to someone else's projects
+If you find an interesting repository on GitHub, you can copy it to your own GitHub account or to your own computer. This is also the first step to take if you want to conribute to projects created by other people.   
+
+Here is a repository that might be of interest to you:  
+github.com/uta-carpentries/SWC_Fall2019 
+
+This repository contains Lessons for this workshop. You can just visit our repository and remind yourselves about what we did or you can copy this repository to your own GitHub account.  
+
+**To copy to your GitHub account**, create a **fork**  by clicking `fork` button on the top right corner of the page.  
+
+You should now have a new repository called `SWC_Fall2019` in **YOUR** account. This is great, you can copy other projects/repositories to your Github account!  
+
+**To copy to your local machine**, use `git clone` command. Let's copy `uta-carpentries/SWC_Fall2019` to your desktop:
+
+```
+$ git clone https://github.com/uta-carpentries/SWC_Fall2019.git ~/Desktop/SWC_Fall2019.git
+```
+You now have all lessons from this workshop both on your Github account and on your local machine!  
+You can have access to any public repository on Github in a similar way.
+
+
+## 6. Collaboration through GitHub
 
 
 ![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/Github_fork.png)
