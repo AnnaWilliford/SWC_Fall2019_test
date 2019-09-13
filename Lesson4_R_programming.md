@@ -1,19 +1,11 @@
----
-title: "Software Carpentry Workshop - Lesson4_R_programming"
-author: "Software Carpentry"
-date: "September 14, 2019"
-output: html_document
----
-Software Carpentry Workshop: Lesson4: R programming
-===
-SCW workshop, September 2019  
-Instructor: Balan Ramesh  
-Adapted from [Software Carpentry](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html)
+# Software Carpentry Workshop
 
-Time: 1.5 hours  
+## Lesson4: R programming
+Adapted from Software Carpentry's [Functions](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html) and [Control Flow](http://swcarpentry.github.io/r-novice-gapminder/07-control-flow/index.html)
 
-**Lesson Overview**  
+#### Please make sure your directory structure is setup as described [here](https://github.com/uta-carpentries/SoftwareCarpentryWorkshops_general/blob/master/Data_DirectoryStructure_Setup.md)
 
+## Introduction
 We have covered basic R usage:
 - Reading data files
 - Creating and manipulating variables
@@ -27,17 +19,25 @@ questions:
 - "How can I make data-dependent choices in R?"
 - "How can I repeat operations in R?"
 
-objectives:
+### Objectives:
 - "Write user-defined functions with `function()`"
 - "Write conditional statements with `if()` and `else()`."
 - "Write and understand `for()` loops."
 
-keypoints:
+### Keypoints:
 - "Use `function()` to automate specific tasks."
 - "Use `if` and `else` to make choices."
 - "Use `for` to repeat operations."
 
-# Creating Functions
+## Setup
+
+1. Open RStudio and set Lesson4_ProgrammingR as your working directory.
+2. Copy the gapminder dataset from `Data` folder.
+3. Clear your history in R enviroment removing all the variables that your created previously.
+4. Open a new R script and read the file as `gapminder <- read.table("gapminder.txt", header = TRUE)`
+___
+
+## Creating Functions
 
 Functions are a list of operations/commands that automate something complicated or convenient or both. A function usually gets one or more inputs called arguments. Functions often (but not always) return a value. An example of a function would be the `sqrt()` function. The input (the argument) must be a number, and the output (the return value) is the square root of the input number. Executing a function (‘running it’) is called `calling the function`. An example of a function call is:
 
@@ -51,6 +51,7 @@ Functions provide:
 
 Let’s create a new script, call it `functions_lesson.R`, and write some examples of our own. Let’s define a function `fahrenheit_to_celsius` that converts temperatures from Fahrenheit to Kelvin:
 
+**Input**
 ```r
 fahrenheit_to_celsius <- function(temp) {
   celsius <- ((temp - 32) * (5/9))
@@ -62,37 +63,49 @@ We define `fahrenheit_to_celsius` by assigning it to the output of `function`. T
 
 When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function. The last line within the function is what R will evaluate as a returning value. For example, let’s try running our function. Calling our own function is no different from calling any other function:
 
-
+**Input**
 ```r
 fahrenheit_to_celsius(32)
-
-## [1] 0
-
-fahrenheit_to_celsius(212)
-## [1] 100
 ```
+
+**Output**  
+
+```## [1] 0```  
+
+**Input**  
+
+```fahrenheit_to_celsius(212)```
+
+**Output**  
+
+```## [1] 100 ```
 
 We’ve successfully called the function that we defined, and we have access to the value that we returned.
 
 **Composing Functions**  
 Now that we’ve seen how to turn Fahrenheit into Celsius, it’s easy to turn Celsius to Kelvin:
+
+**Input**  
+
 ```r
 celsius_to_kelvin <- function(temp_C) {
   temp_K <- temp_C + 273.15
   return(temp_K)
 }
 ```
-
+**Input**
 ```r
 # Freezing Point of water
 celsius_to_kelvin(0)
 ```
-
+**Output**
 ```
 ## [1] 273.15"
 ```
 
 What about converting Fahrenheit to Kelvin? We could write out the formula, but we don’t need to. Instead, we can compose the two functions we have already created:
+
+**Input**
 ```r
 fahrenheit_to_kelvin <- function(temp_F) {
   temp_C <- fahrenheit_to_celsius(temp_F)
@@ -100,18 +113,18 @@ fahrenheit_to_kelvin <- function(temp_F) {
   return(temp_K)
 }
 ```
-
+**Input**
 ```r
 # Freezing point of water in Kelvin
 fahrenheit_to_kelvin(32)
 ```
-
+**Output**
 ```
 ## [1] 273.15
 ```
 This is our first taste of how larger programs are built: we define basic operations, then combine them in ever-large chunks to get the effect we want. Real-life functions will usually be larger than the ones shown here—typically half a dozen to a few dozen lines—but they shouldn’t ever be much longer than that, or the next person who reads it won’t be able to understand what’s going on.
 
-## Challenge 1
+### Challenge 1
 In the last lesson, we learned to combine elements into a vector using the `c` function, e.g. `x <- c("A", "B", "C")` creates a vector `x` with three elements. Furthermore, we can extend that vector again using `c`, e.g. `y <- c(x, "D")` creates a vector y with four elements. Write a function called `highlight` that takes two vectors as arguments, called `content` and `wrapper`, and returns a new vector that has the wrapper vector at the beginning and end of the content:
 
 
@@ -129,12 +142,15 @@ highlight(best_practice, asterisk)
 ```
 **Solution**
 
-```shell=
+**Input**
+```r
 highlight <- function(content, wrapper) {
   answer <- c(wrapper, content, wrapper)
   return(answer)
 }
+highlight(best_practice, asterisk)
 ```
+**Output**
 ```
 [1] "***"       "Write"     "programs"  "for"       "people"    "not"      
 [7] "computers" "***"  
@@ -146,7 +162,7 @@ Let's say we have the following problem:
 
 How would we approach such a problem? What are the steps that are needed? The concepts in the next sections will help us breakdown this problem into smaller bits and eventually solve it. I want to you think about the concept we learn and how that may be applicable to this problem as we move along the lesson.
 
-# if...else statements
+## if...else statements
 
 Often when we're coding we want to control the flow of our actions. This can be done
 by setting actions to occur only if a condition or a set of conditions are met.
@@ -170,6 +186,7 @@ if (condition is true) {
 ```
 Say, for example, that we want R to print a message if a variable `x` has a particular value:
 
+**Input**
 ```r
 x <- 8
 
@@ -179,12 +196,13 @@ if (x >= 10) {
 
 x
 ```
-
+**Output**
 ```
 8
 ```
 The print statement does not appear in the console because x is not greater than 10. To print a different message for numbers less than 10, we can add an `else` statement.
 
+**Input**
 ```r
 x <- 8
 
@@ -195,8 +213,14 @@ if (x >= 10) {
 }
 ```
 
+**Output**
+```
+[1] x is less than 10
+```
+
 You can also test multiple conditions by using `else if`.
 
+**Input**
 ```r
 x <- 8
 
@@ -208,9 +232,15 @@ if (x >= 10) {
   print("x is less than 5")
 }
 ```
+**Output**
+
+```r
+[1] x is greater than 5, but less than 10
+```
 
 Important: when R evaluates the condition inside `if()` statements, it is looking for a logical element, i.e., `TRUE` or `FALSE`. This can cause some headaches for beginners. For example:
 
+**Input**
 ```r
 x  <-  4 == 3
 if (x) {
@@ -219,23 +249,24 @@ if (x) {
   "4 does not equal 3"
 }
 ```
-
+**Output**
 ```r
 [1] "4 does not equal 3"
 ```
 
 As we can see, the not equal message was printed because the vector `x` is `FALSE`.
 
+**Input**
 ```
 x <- 4 == 3
 x
 ```
-
+**Output**
 ```
 [1] FALSE
 ```
 
-## Challenge 2
+### Challenge 2
 Use an `if()` statement to print a suitable message reporting whether there are any records from 2002 in the `gapminder` dataset. Now do the same for 2012.
 
 *Hint: Use any() if you see an error*
@@ -248,7 +279,7 @@ if(any(gapminder$year == 2002)){
 
 > Do you think we can apply `if` and `else` to our problem?
 
-# Repeating operations
+## Repeating operations
 
 If you want to iterate over a set of values, when the order of iteration is important, and perform the same operation on each, a `for()` loop will do the job. We saw `for()` loops in the shell lessons earlier. This is the most flexible of looping operations, but therefore also the hardest to use correctly. Avoid using `for()` loops unless the order of iteration is important: i.e. the calculation at each iteration depends on the results of previous iterations.
 
@@ -260,12 +291,13 @@ for(iterator in set of values){
 }
 ```
 
+**Input**
 ```r
 for(i in 1:10){
   print(i)
 }
 ```
-
+**Output**
 ```r
 [1] 1
 [1] 2
@@ -282,6 +314,7 @@ The 1:10 bit creates a vector on the fly; you can iterate over any other vector 
 
 For example, in our previous R lesson we had a `myorder_df`. We could iterate over each `menuItem` and display its cost.
 
+**Input**
 ```r
 menuItems<-c("chicken", "soup", "salad", "tea")  
 menuType<-factor(c("solid", "liquid", "solid", "liquid"))  
@@ -294,9 +327,22 @@ for (items in myorder_df$menuItems){
   print(myorder_df_subset$menuCost)
 }
 ```
+
+**Output**
+```r
+[1] "chicken"
+[1] 4.99
+[1] "soup"
+[1] 2.99
+[1] "salad"
+[1] 3.29
+[1] "tea"
+[1] 1.89
+```
+
 > Now, you are equipped with all things necessary to solve our problem.
 
-## Challenge 3
+### Challenge 3
 
 Write a script that loops through the `gapminder` data by continent and prints out whether the mean life expectancy is smaller or larger than 50 years.
 
