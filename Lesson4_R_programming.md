@@ -125,35 +125,32 @@ fahrenheit_to_kelvin(32)
 This is our first taste of how larger programs are built: we define basic operations, then combine them in ever-large chunks to get the effect we want. Real-life functions will usually be larger than the ones shown here—typically half a dozen to a few dozen lines—but they shouldn’t ever be much longer than that, or the next person who reads it won’t be able to understand what’s going on.
 
 ### Challenge 1
-In the last lesson, we learned to combine elements into a vector using the `c` function, e.g. `x <- c("A", "B", "C")` creates a vector `x` with three elements. Furthermore, we can extend that vector again using `c`, e.g. `y <- c(x, "D")` creates a vector y with four elements. Write a function called `highlight` that takes two vectors as arguments, called `content` and `wrapper`, and returns a new vector that has the wrapper vector at the beginning and end of the content:
+Create a function `MeanlifeExp()`, that takes a continent as its argument and returns the mean life expectancy of that continent. For example `MeanlifeExp("Europe")` returns `71.90369`
+
 
 
 Example function call and output:
-```shell=
-best_practice <- c("Write", "programs", "for", "people", "not", "computers")
-asterisk <- "***"  # R interprets a variable with a single value as a vector
-                   # with one element.
-highlight(best_practice, asterisk)
+```r
+MeanLifeExp("Europe")
 ```
 
 ```
-[1] "***"       "Write"     "programs"  "for"       "people"    "not"      
-[7] "computers" "***"  
+[1] 71.90369
 ```
 **Solution**
 
 **Input**
 ```r
-highlight <- function(content, wrapper) {
-  answer <- c(wrapper, content, wrapper)
-  return(answer)
+MeanLifeExp <- function(Continent) {
+  Subset_Continent_LifeExp <- gapminder[gapminder$continent == Continent, "lifeExp"]
+  lifeExp <- mean(Subset_Continent_LifeExp)
+  return(lifeExp)
 }
-highlight(best_practice, asterisk)
+MeanLifeExp("Europe")
 ```
 **Output**
 ```
-[1] "***"       "Write"     "programs"  "for"       "people"    "not"      
-[7] "computers" "***"  
+[1] 71.90369
 ```
 
 Let's say we have the following problem:
@@ -267,16 +264,25 @@ x
 ```
 
 ### Challenge 2
-Use an `if()` statement to print a suitable message reporting whether there are any records from 2002 in the `gapminder` dataset. Now do the same for 2012.
+Use an `if()` `else` statement to print a suitable message reporting whether the mean life expectancy (using the MeanLifeExp() function) of Asia is higher or lower than 50.
 
-*Hint: Use any() if you see an error*
 **Solution**
+
+
+**Input**
 ```r
-if(any(gapminder$year == 2002)){
-   print("Record(s) for the year 2002 found.")
+Asia_lifeExp <-  MeanLifeExp("Asia")
+if(Asia_lifeExp >= 50){
+  print("Life Expectancy of Asia is greater than or equal to 50")
+} else {
+  print("Life Expectancy of Asia is lower than 50")
 }
 ```
 
+**Output**
+```r
+[1] "Life Expectancy of Asia is greater than or equal to 50"
+```
 > Do you think we can apply `if` and `else` to our problem?
 
 ## Repeating operations
@@ -346,10 +352,12 @@ for (items in myorder_df$menuItems){
 
 Write a script that loops through the `gapminder` data by continent and prints out whether the mean life expectancy is smaller or larger than 50 years.
 
+*Hint: Try unique() function to get unique values of a column*
+
 **Solution**
 
 ```r
-gapminder <- read.table("Data/gapminder.txt")
+gapminder <- read.table("gapminder.txt", header = TRUE)
 
 thresholdValue <- 50
 
