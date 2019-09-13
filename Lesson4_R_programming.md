@@ -264,7 +264,7 @@ x
 ```
 
 ### Challenge 2
-Use an `if()` `else` statement to print a suitable message reporting whether the mean life expectancy (using the MeanLifeExp() function) of Asia is higher or lower than 50.
+Calculate the mean life Expectancy (using the previous user-defined function) of Asia. If the life expectancy is greater than or equal to 50, `print("Life Expectancy of Asia is greater than or equal to 50")`, if not `print("Life Expectancy of Asia is lower than 50")`
 
 **Solution**
 
@@ -357,21 +357,24 @@ Write a script that loops through the `gapminder` data by continent and prints o
 **Solution**
 
 ```r
-gapminder <- read.table("gapminder.txt", header = TRUE)
+gapminder <- read.table("../Data/gapminder.txt", header = TRUE)
 
 thresholdValue <- 50
 
-for( Continent in unique(gapminder$continent) ){
-   tmp <- mean(gapminder[gapminder$continent == Continent, "lifeExp"])
+continent_list <- unique(gapminder$continent)
 
-   if(tmp < thresholdValue){
-       cat("Average Life Expectancy in", Continent, "is less than", thresholdValue, "\n")
-   }
-   else{
-       cat("Average Life Expectancy in", Continent, "is greater than", thresholdValue, "\n")
-        } # end if else condition
-   rm(tmp)
-   } # end for loop
+for(continent in continent_list){
+
+  continent_subset <- gapminder[gapminder$continent == continent, "lifeExp"]
+  tmp <- mean(continent_subset)
+  if(tmp <= thresholdValue){
+    print(paste0("Average Life Expectancy in ", continent, " is less than ", thresholdValue))
+  }
+  else{
+    print(paste0("Average Life Expectancy in ", continent, " is greater than ", thresholdValue))
+  } # end if else condition
+  rm(tmp)
+}
 ```
 
 
