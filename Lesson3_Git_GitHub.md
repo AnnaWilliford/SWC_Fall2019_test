@@ -117,8 +117,17 @@ Now create a file, `notes.txt` inside `project_git`.
 #go to project_git
 $ cd project_git
 
-#make notes.txt with this content
-$ echo "My notes about git:" > notes.txt
+#make empty notes.txt
+$ touch notes.txt
+
+#open with Sublime:
+$ subl notes.txt
+
+#Add text: "My notes about git:"
+#Save and close.
+
+#Check contens of this file
+$ cat notes.txt
 
 #check project_git contents
 $ ls -aF 
@@ -147,6 +156,11 @@ $ ls -aF
 ```
 The folder that contains .git directory is called ***repository***
 
+![](Git_stages.png)
+
+
+  
+
 Let's try `git status` command now.
 ```
 $ git status
@@ -161,12 +175,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-You can see that initializing a directory makes it visible to Git. Now Git tells us what files are in the directory and what is their status. 
-
-Here is the main idea of how we track changes with Git:  
-![](http://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
-
-In our case, Git says that there is `notes.txt` file and it is untracked. Git also tells us that we need to use `git add` command to start tracking this file.
+You can see that initializing a directory makes it visible to Git. Now Git tells us what files are in the directory and what is their status. In our case, Git says that there is `notes.txt` file and it is untracked. Git also tells us that we need to use `git add` command to start tracking this file.
 ```
 $ git add notes.txt
 
@@ -204,7 +213,7 @@ $ git status
 On branch master
 nothing to commit, working tree clean
 ```
-Everything is up to date!
+Everything is up-to-date!
 
 You can check the history of your commits:
 ```
@@ -216,7 +225,7 @@ Date:   Thu Nov 2 13:29:28 2017 -0500
 
     first note 
     
-#or for a faster view
+#or for a condensed view
 $ git log --oneline
 ```
 In summary, here are the steps that must be completed to track changes in your documents with Git.
@@ -226,16 +235,12 @@ In summary, here are the steps that must be completed to track changes in your d
 - [x] Create a permanent copy of your new/modified file with `git commit -m "message" `
 
 
-![](http://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
-
-
-
  **Challenge**
 ```
- Open notes.txt in text editor and add commands that you need to execute in order to:
+ Open notes.txt in text editor and record commands that you need to execute in order to:
  1. turn a new folder into git repository, 
  2. track changes to a file with Git. 
- Save your changes and track your changes with Git.
+ Save your changes and commit your changes with Git. You can use "added git commands" as your commit message 
 ```
 >**Solution**
 >
@@ -270,8 +275,102 @@ Your versions (or commits) have unique identifiers. In addition, the most recent
 #you can specify only first few characters of the commit identifier.
 $ git diff 851e745b2 HEAD notes.txt
 ```
- 
-So far, we worked with a folder we created from scratch. Now, let's see how to turn an existing directory into git repository. You might want to track files for some of your existing projects. Maybe for `SCW` directory? How will you place this directory under Git control?
+
+
+## 4. Accessing older versions
+
+The clear advantage of tracking your documents with Git is that you can always go back to the previous version. Let's see how this works.
+
+The output of `git log` provides all the information you need to retrieve the older version of the document.
+
+In our case, we have two versions of `notes.txt`:
+
+```
+$ git log 
+
+commit 0d19d524b547467f2eaccb4840449ce0d9e02588 (HEAD -> master)
+Author: =AnnaWilliford <awillifo@uta.edu>
+Date:   Wed Sep 11 12:18:14 2019 -0500
+
+    added git commands
+
+commit 760f2f26c22ff8f7838a2e05154e8b7a5703111c
+Author: =AnnaWilliford <awillifo@uta.edu>
+Date:   Wed Sep 11 11:50:39 2019 -0500
+
+    added notes.txt
+
+```
+
+Suppose that you want the original version of `notes.txt`. How would you do that?
+
+To restore any of the original versions of a file, you use `git checkout` command:
+```
+#general syntax
+$ git checkout <commitID> <file>
+```
+
+If we want the original `notes.txt`:
+```
+#see what commitID is associated with the original version
+git log --oneline
+
+#the commit that includes original file has message "added notes.txt" (or whatever you used when you committed the change)
+$ git checkout ad91ea0aab notes.txt
+
+#Note: your commitID will be different
+```
+
+Now let's make sure that we have original version of `notes.txt`
+```
+#view restored version
+$ cat notes.txt
+
+#restored version has not been committed, see HEAD commit
+$ git log
+
+#see what to do next
+$ git status
+
+#If you decide to go ahead with restoring file, commit the change since checkout command places file in the staging area (no need for 'git add')
+
+$ git commit -m "changed to the original notes.txt version"
+
+$ git status
+
+#see HEAD now
+$ git log
+```
+
+If you run git checkout, but would like to cancel restoring the old version, do this before committing original version:
+```
+#unstage restored file
+$ git reset HEAD notes.txt 
+
+#return to latest version before you attempted to restore the file
+$ git checkout -- notes.txt
+
+#see current file
+$ cat notes.txt
+```
+
+If you want to return to a previous snapshot (version) of your project and remove all commits after a certain commit:
+
+```
+#revert to a state identified by <commitID>
+$ git reset <commitID>
+
+#check commit history
+$ git log
+```
+
+## 5. GitHub: share your repository with the world
+
+So far, our work was restricted to the local machine. But if you want to share your repositories with your colleagues, it would be nice to have a central place where everyone could make their repositories available for comments/suggestions/collaborations. Github is a service that allows us to do that. It is also nice to have access to your project from anywhere, not just from your own computer.   
+
+You have SCW directory on the desktop with all the files you created during the workshop. Let's add SCW folder to your GitHub account. How would you do that?  
+
+Notice that so far, we worked with a folder we created from scratch. Now, let's see how to turn an existing directory (`SCW`) into git repository. How will you place this directory under Git control?
 
 ```
 #Go to SCW
@@ -284,129 +383,48 @@ $ git init
 $ git status
 
 #prepare files for tracking
-$ git add .
+$ git add --all
 
 #commit changes 
-$ git commit -m "init with Git"
+$ git commit -m "init SCW with Git"
 
 #check commit history
 $ git log
 ```
-Now every file in this directory is being tracked.
+Now every file in this directory is being tracked.   
 
 Notice that we added multiple folders and files in the same commit. If you want to know what files were included in this commit:
 ```
 # print the list of files that are part of a given commit
 $ git show --name-only 1e228d70f
 ```
-As you continue working on this project, you will be adding new directories and files to it.
-Let's try it.
 
-**Challenge**
-```
-Copy notes.txt from project_git folder to SCW/Lesson3_Git_GitHub folder. 
-Add and commit this new file to Git.
+Now our `SCW` is ready to be added to GitHub.
 
-NOTE: You cannot copy project_git repository to SCW/Lesson3_Git_GitHub because 
-SCW is already a repository. There should be only one .git folder for every repository.
-```
- 
-## 4. Accessing older versions
+**If you have not created Github account, please go to github.com and do it now.**
 
-The clear advantage of tracking your documents with Git is that you can always go back to the previous version. Let's see how this works.
-
-The output of `git log` provides all the information you need to retrieve the older version of the document.
-
-In our case, we do not have multiple versions of the same document, so let's modify our git_steps.txt and add a note to it:
-
-```
-$ echo "Use git init only one time for every project" >>git_steps.txt
-
-$ cat git_steps.txt
-
-$ git add .
-$ git commit -m "added note to git_steps.txt"
-
-#view latest version
-$ cat git_steps.txt
-```
-
-Now, this is our second version of git_steps.txt. Our first version was stored when we first created the file, and our second version when we added a new line to it.
-
-Suppose that some time later, you want the original version of git_steps.txt. How would you do that?
-
-To restore any of the original versions of the document, you use `git checkout` command:
-```
-#general syntax
-$ git checkout <commitID> <file>
-```
-
-If we want the original git_steps.txt:
-```
-#see what commitID is associated with the original version
-git log --oneline
-
-#the commit that includes original file has message "added git_github directory" (or whatever you used when you committed the change)
-$ git checkout ad91ea0aab git_steps.txt
-```
-
-Now let's make sure that we have original version of git_steps.txt
-```
-#view restored version
-$ cat git_steps.txt
-
-#restored version has not been committed, see HEAD commit
-$ git log
-
-#see what to do next
-$ git status
-
-#If you decide to go ahead with restoring file, commit the change since checkout command places file in the staging area (no need for 'git add')
-
-$ git commit -m "changed to the original git_steps.txt version"
-
-$ git status
-
-#see HEAD now
-$ git log
-
-#if you run `git checkout, but would like to cancel restoring the old version:
-#unstage restored file
-$ git reset HEAD git_steps.txt 
-
-#return to latest version before you attempted to restore the file
-$ git checkout -- git_steps.txt
-
-#see current file
-$ cat git_steps.txt
-```
-
-## 6. GitHub: share your repository with the world
-
-So far, our work was restricted to the local machine. But if you want to share your repositories with your colleagues, it would be nice to have a central place where everyone could make their repositories available for comments/suggestions/collaborations. Github is a service that allows us to do that. 
-
-If you have not created Github account, please go to github.com and do it now. 
-
-Now we want to create repository that will be a remote copy of our local `SWC_spring2019` repository. 
+Now we want to create repository that will be a remote copy of our local `SCW` repository. 
 ```
 #from your github account:
 Click on 'new repository'
-Repository name: 'SWC_spring2019'
+Repository name: 'SCW'
 Type: public
 Click on 'create repository'
 ```
-You have just created remote empty `SWC_spring2019` repository. This repository has a specific identifier URL associated with it. We now let our local machine know that we have a remote location for our local repository.
+You have just created remote empty `SCW` repository. This repository has a specific identifier URL associated with it. We now let our local machine know that we have a remote location for our local repository.
 ```
 #on your local machine
 $ git remote add origin URL
+#in my case:
+#$ git remote add origin https://github.com/AnnaWilliford/SCW.git
 ```
 The name origin is a local nickname for your remote repository. We could use something else if we wanted to, but origin is by far the most common choice.
 
-Once the nickname origin is set up, this command will push the changes from our local repository to the repository on GitHub:
+Once the nickname origin is set up, `git push` command will push the changes from our local repository to the repository on GitHub:
 ```
 $ git push -u origin master
 ```
-This is it! You just made your local '' repository available on Github to everyone. You are now in position to share your work and collaborate with others. How cool is this?
+This is it! You just made your local 'SCW' repository available on GitHub to everyone. You are now in position to share your work and collaborate with others. How cool is this?
 
 ---
 
@@ -415,75 +433,47 @@ This is it! You just made your local '' repository available on Github to everyo
 
 ---
 
-**Challenge 6.1**
+**Challenge**
 ```
-Suppose you want to add another file to your repository. 
-Take any file outside SWC_spring2019 directory
-and add it to your local repository and then push it to Github.
+Suppose you want to add another file to your repository.
+Copy notes.txt from Desktop/project_git folder to SCW/Lesson3_Git_GitHub folder. Add this file to your local repository (git add, git commit)
+and then push (git push) it to GitHub.
 
+**NOTE** You can only have one .git folder in the root directory of the project. Do not copy project_git folder, just notes.txt
+```
+> **Solution**
+>  
+> ```
+> #make sure you are inside SCW directory on your local machine
+> $ cp ~/Desktop/project_git/notes.txt Lesson3_Git_GitHub/
+> $ git add -all
+> $ git commit -m "added notes.txt to Lesson3_Git_GitHub"
+>
+> #make sure that everything is up to date:
+> $ git status
+> 
+> #push to GitHub
+> $ git push
+> ```
+
+## 6. Working with repositories created by others 
+
+If you find an interesting repository on GitHub, you can copy it to your own GitHub account or to your own computer. This is also the first step to take if you want to conribute to projects created by other people.   
+
+Here is a repository that might be of interest to you:  
+https://github.com/uta-carpentries/SWC_Fall2019
+
+This repository contains Lessons for this workshop. You can just visit our repository and remind yourselves about what we did or you can copy this repository to your own GitHub account.  
+
+**To copy to your GitHub account**, create a **fork**  by clicking `fork` button on the top right corner of the page.  
+
+You should now have a new repository called `SWC_Fall2019` in **YOUR** account. This is great, you can copy other projects/repositories to your Github account!  
+
+**To copy to your local machine**, use `git clone` command. Let's copy `uta-carpentries/SWC_Fall2019` to your desktop:
 
 ```
-
-
-## 7. Working with and/or contributing to someone else's projects
-
-
-![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/Github_fork.png)
-
----
-
-![](https://github.com/AnnaWilliford/2017-11-11-UTA/raw/gh-pages/workshop/images/Github_pullRequest.png)
-
----
-
-This part of the lesson is modified from this [Source](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
-
-You can contribute to whatever project you like. Suppose you would like to add a new feature to someone else's project. You can always propose your changes - in Github language this is known as  `pull request`.
-
-Steps for making pull requests (or PRs):
-
-- go to the project you want to contribute to
-  (https://github.com/uta-carpentries/SWC_spring2019_lessons)
-
-- copy the project to your Github account by clicking `fork` button on the top right corner of the page
-
-You should now have a new repository called `SWC_spring2019_lessons` in **YOUR** account. This is great, you can copy other projects/repositories to your Github account!
-
-You can also copy remote repository to the local machine, say to the Desktop. From your local terminal, type:
+$ git clone https://github.com/uta-carpentries/SWC_Fall2019.git ~/Desktop/SWC_Fall2019.git
 ```
-$ git clone https://github.com/YourUsername/SWC_spring2019_lessons.git ~/Desktop/SWC_spring2019_lessons.git
-```
-You now have all lessons from this workshop both on your Github account and on your local machine!
+You now have all lessons from this workshop both in your GitHub account and on your local machine!  
+You can have access to any public repository on GitHub in a similar way.
 
-See, you have access to any public repository on Github in a similar way.
-
-Now, what is even better, you can contribute to the project you forked/cloned(copied) by suggesting changes to the documents in the repository. If, for example, you find a better way to explain some topic we were covering in this workshop, you can make changes to the lessons locally on your machine and then send a `pull request` to the owner of repository. The owner will review your changes and decide to accept(merge) proposed changes or reject them.
-
-Want to try?
-Go to `SWC_spring2019_lessons` repo on your local machine and open a new topic branch for the project:
-```
-$ git checkout -b YourName
-```
-You can now modify and add anything you want in this project. When ready with your final contributions, you will be able to send your pull request.
-
-For example, add your created new file, say "Python_Basics_NewChallenge"
-```
-#create new file
-$ git add .
-$ git commit -m "add new file"
-
-#Push your topic branch up to your fork:
-$ git push origin YourName
-```
-Go to the forked repo on your GitHub account and click on the green `compare & pull request` button
-
-A bit more terminology here: 
-`base fork` is the repository you'd like to merge changes into. Use the `base branch` drop-down menu to select the branch of the upstream repository you'd like to merge changes into.
-
-Use the `head fork` drop-down menu to select your fork, then use the compare branch drop-down menu to select the branch you made your changes in.
-
-Type a title and description for your pull request.
-
-Click `Create pull request`
-
-The owner of repository will get notification about pull request and will review your proposed changes.
