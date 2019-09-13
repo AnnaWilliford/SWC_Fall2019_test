@@ -342,6 +342,12 @@ $ git status
 $ git log
 ```
 
+**Challenge**
+```
+Check your commit history and use `git checkout <commitID> <file>` command to restore `notes.txt` that has has your notes about git. 
+```
+
+
 If you run git checkout, but would like to cancel restoring the old version, do this before committing original version:
 ```
 #unstage restored file
