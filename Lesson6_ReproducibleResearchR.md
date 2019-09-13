@@ -243,6 +243,20 @@ The mean of life expectancy column is 59.4744394.
 You can also convert R Markdown to a PDF or a Word document. Click the little triangle next to the "Knit HTML" button to get a drop-down menu. Or you could put `pdf_document` or `word_document` in the header of the file.
 
 
+## Time for practice!
+
+**Here is your task:**  
+```
+Write `RprogrammingTask.Rmd` explaining how you would approach the following task.
+"For every unique country in gapminder dataset, if country name starts with 'Ma', use ggplot2 package 
+to plot life expectancy(y axis) over years(x axis)."
+
+Use markdown text to break the problem into multiple steps (in English first). 
+Then try to implement each step in R by adding code chunks.
+```
+**Solution**
+See [RprogrammingTask.Rmd](RprogrammingTask.Rmd)
+
 ## Resources
 
 - [Knitr in a knutshell tutorial](http://kbroman.org/knitr_knutshell)

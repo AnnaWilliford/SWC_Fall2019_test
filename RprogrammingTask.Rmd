@@ -1,0 +1,133 @@
+---
+title: "R: practice writing scripts: for, if, user-defined funcions, ggplot2"
+author: "Anna Williford"
+date: "9/12/2019"
+output: html_document
+---
+  
+  
+I was given `gapminder.txt` dataset and asked to do the following:
+
+**For every unique country in gapminder.txt dataset, if the country starts with 'Ma', use ggplot2 package to plot life expectancy(y axis) over years(x axis).**  
+
+Here are the steps I need to implement in R to complete this task.  
+1. Load `ggplot2` library  
+2. Load `gapminder.txt`  
+3. Create `country_list` that contains country names from `gapminder.txt`. 
+4. Start a `for` loop to iterate over every element of `country_list`
+5. Use `if` statement to check if the country name starts with "Ma".    
+6. If it does, subset gapminder dataset to select information about just that country.   
+7. Make ggplot to plot life expectancy on y-axis and years on x-axis using subset of the data from step 6.  
+8. Close `if`statement and `for` loop.
+
+
+Here is a scaffold for a programm:
+```
+#1 load library
+library(ggplot2)
+
+#2 load data
+gapminder<-read.table("gapminder.txt", header = TRUE)
+
+#3 create list of countries to loop over
+country_list=
+
+#4 loop over country_list
+for(country in country_list){
+  #5 if(country starts with "Ma"){
+     #5 subset gapminder
+     #6 make ggplot
+   }
+}
+```
+Here is the implementation of these steps:  
+
+```{r, plots}
+#load packages
+library(ggplot2)
+
+#read data ito R
+gapminder<-read.table("gapminder.txt", header = TRUE)
+
+#make country_list to loop over
+country_list=unique(gapminder$country)
+
+#loop over counry_list
+for(country in country_list) {
+  if(startsWith(country,"Ma")){
+    #subset data to get info about the country if its name starts with 'Ma'
+    countryData<-gapminder[gapminder$country==country,]
+    #make ggplot with countryData
+    print(ggplot(data=countryData)+aes(x=year,y=lifeExp)+geom_line(color="red")
+          +labs(title=country))
+    
+  }
+}
+```
+If you want to save each plot to a separate file, make a unique name for every plot and save with `ggsave`
+
+```{r, loop_if_plot, eval=FALSE}
+#load packages
+library(ggplot2)
+
+#read data ito R
+gapminder<-read.table("gapminder.txt", header = TRUE)
+
+#make country_list to loop over
+country_list=unique(gapminder$country)
+
+#loop over counry_list
+for(country in country_list) {
+  if(startsWith(country,"Ma")){
+    #subset data to get info about the country if its name starts with 'Ma'
+    countryData<-gapminder[gapminder$country==country,]
+    #make ggplot with countryData
+    myplot<-ggplot(data=countryData)+aes(x=year,y=lifeExp)+geom_line(color="red")
+    #create a unique file name to save plot to
+    f_name=paste0(country,"_plot.png")
+    #save plot
+    ggsave(myplot, filename=f_name)
+  }
+}
+```
+**Note** The script would be easier to read if subsetting was done with a user-defined function:
+
+```{r, subsetting function, eval=FALSE}
+getCountryData<-function(countryName, df){
+  countryData<-df[df$country==countryName,] 
+  return(countryData)
+}
+```
+
+Then, we can rewrite the above script like this:
+
+```{r, loop_if_plot_withFunction, eval=FALSE}
+#load packages
+library(ggplot2)
+
+#define functions
+getCountryData<-function(countryName, df){
+  countryData<-df[df$country==countryName,] 
+  return(countryData)
+}
+
+#read data ito R
+gapminder<-read.table("gapminder.txt", header = TRUE)
+
+#make country_list to loop over
+country_list=unique(gapminder$country)
+
+#loop over counry_list
+for(country in country_list) {
+  if(startsWith(country,"Ma")){
+    #subset data to get info about the country if its name starts with 'Ma'
+    countryData<-getCountryData(country,gapminder)
+    #make ggplot with countryData
+    myplot<-ggplot(data=countryData)+aes(x=year,y=lifeExp)+geom_line(color="red")
+    #create a unique file name to save plot to
+    f_name=paste0(country,"_plot.png")
+    #save plot
+    ggsave(myplot, filename=f_name)
+  }
+}
+```
