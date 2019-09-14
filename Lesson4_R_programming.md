@@ -17,11 +17,11 @@ Now we will cover answers to 3 specific questions. They are as follows.
 questions:
 - "How can I repeat several operations with a single command in R?"
 - "How can I make data-dependent choices in R?"
-- "How can I repeat operations in R?"
+- "How can I repeat operations for different datasets in R?"
 
 ### Objectives:
 - "Write user-defined functions with `function()`"
-- "Write conditional statements with `if()` and `else()`."
+- "Write conditional statements with `if()` and `else`."
 - "Write and understand `for()` loops."
 
 ### Keypoints:
