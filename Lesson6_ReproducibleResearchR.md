@@ -22,41 +22,32 @@ Documenting and sharing the progress and results of data analysis is one of the 
 source: Rmd
 ---
 
-## Reproducible research
-#### Reproducibility vs Replicability
+## Reproducible research  
+#### Reproducibility vs Replicability  
 
-**Reproducibility**: a study is reproducible if the analysis is presented in a way that can be repeated exactly.
-**Replicability**: independent verification of the results of the original study.
+**Reproducibility**: a study is reproducible if the analysis is presented in a way that can be repeated exactly.  
+**Replicability**: independent verification of the results of the original study.  
 
-If the code and the data are available, anyone can run the analysis again and get the exact same result = **reproducibility**
-If the results of the independent study support the conclusions of the original study = **replicability**
+If the code and the data are available, anyone can run the analysis again and get the exact same result = **reproducibility**  
+If the results of the independent study support the conclusions of the original study = **replicability**  
 
-### Reproducibility != Replicability
+### Reproducibility != Replicability  
 
 > Reproducibility is important not because it ensures that the results are correct, but rather because it ensures
 > transparency and gives us confidence in understanding exactly what was done.
 
 > - [Roger Peng](https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/)
 
-Replicating studies are much harder than reproducing them. Ensuring reproducibility is the least we can do to make a study the best it can be.
+Replicating studies are much harder than reproducing them. Ensuring reproducibility is the least we can do to make a study the best it can be.  
 
-To accomplish reproducibility we need to record every step of data manipulation and analysis (write scripts, do not execute your commands in interactive mode)
-
-## Literate programming
-Literate programming is a way of writing programs that includes an explanation of the program's logic in a natural language together with computer code.
-
-**R package `knitr` allows us to implement both, reproducible research and literate programming by combining code with supporting text**
-
+To accomplish reproducibility we need to record every step of data manipulation and analysis (write scripts, do not execute your commands in interactive mode)  
 
 ## Literate programming
+Literate programming is a way of writing programs that includes an explanation of the program's logic in a natural language together with computer code.  
 
-Ideally, such analysis reports are _reproducible_ documents: If an error is discovered, or if some additional subjects are added to the data, you can just re-compile the report and get the new or corrected results (versus having to reconstruct figures, paste them into a Word document, and further hand-edit various detailed results).
+**R package [knitr](http://yihui.name/knitr/) allows us to implement both, reproducible research and literate programming by combining code with supporting text.** When the document is processed by `knitr`, chunks of R code will be executed, and graphs or other results inserted.   
 
-The key tool for R is [knitr](http://yihui.name/knitr/), which allows you to create a document that is a mixture of text and some chunks of code. When the document is processed by knitr, chunks of R code will be executed, and graphs or other results inserted.
-
-This sort of idea has been called "literate programming".
-
-knitr allows you to mix basically any sort of text with any sort of code, but we recommend that you use R Markdown, which mixes Markdown with R. Markdown is a light-weight mark-up language for creating web pages.
+`knitr` allows you to mix basically any sort of text with any sort of code, but we recommend that you use R Markdown, which mixes Markdown with R. Markdown is a light-weight mark-up language for creating web pages.
 
 
 ## Creating an R Markdown file
