@@ -35,8 +35,8 @@ If the results of the independent study support the conclusions of the original 
 
 > Reproducibility is important not because it ensures that the results are correct, but rather because it ensures
 > transparency and gives us confidence in understanding exactly what was done.
-
-> - [Roger Peng](https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/)
+>
+> [Roger Peng](https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/)
 
 Replicating studies are much harder than reproducing them. Ensuring reproducibility is the least we can do to make a study the best it can be.  
 
