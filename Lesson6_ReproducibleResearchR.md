@@ -38,7 +38,7 @@ If the results of the independent study support the conclusions of the original 
 >
 > [Roger Peng](https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/)
 
-Replicating studies are much harder than reproducing them. Ensuring reproducibility is the least we can do to make a study the best it can be.  
+It is much harder to replicate studies than reproduce them. Ensuring reproducibility is the least we can do to make a study the best it can be.  
 
 To accomplish reproducibility we need to record every step of data manipulation and analysis (write scripts, do not execute your commands in interactive mode)  
 
