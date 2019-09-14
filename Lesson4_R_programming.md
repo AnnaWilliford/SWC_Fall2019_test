@@ -357,7 +357,7 @@ Write a script that loops through the `gapminder` data by continent and prints o
 **Solution**
 
 ```r
-gapminder <- read.table("../Data/gapminder.txt", header = TRUE)
+gapminder <- read.table("gapminder.txt", header = TRUE)
 
 thresholdValue <- 50
 
