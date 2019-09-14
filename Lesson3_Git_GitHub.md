@@ -483,7 +483,7 @@ $ git clone https://github.com/uta-carpentries/SWC_Fall2019.git ~/Desktop/SWC_Fa
 You now have all lessons from this workshop both in your GitHub account and on your local machine!  
 You can have access to any public repository on GitHub in a similar way.
 
-**Resources**
+**Resources**   
 [Git GitHub Project](https://github.com/git/git) See README file for meaning of Git  
 [The mind behind Linux](https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux?language=en#t-70708)  
 [Git documentation](https://git-scm.com/doc)  
