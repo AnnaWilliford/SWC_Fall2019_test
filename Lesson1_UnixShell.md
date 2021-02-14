@@ -3,6 +3,8 @@
 ## Lesson1: Linux Shell: Part 1
 This lesson is based on [this Software Carpentry lesson](http://swcarpentry.github.io/shell-novice/)
 
+#### Please make sure your directory structure is setup as described [here](https://github.com/uta-carpentries/SoftwareCarpentryWorkshops_general/blob/master/Data_DirectoryStructure_Setup.md)
+
 ### 1. Why learn Linux?
 + Most widely used OS in research and technology
 + Open-source: free to get, free to use, free to modify.
@@ -27,7 +29,7 @@ $ echo "Welcome to our workshop"
 ```
 `echo` command is read, executed and the output is printed. Only commands known to bash will be executed. Try:
 ```
-$ stop this session 
+$ stop
 ```
 You will see `command not found` message. This means that Bash does not recognize this command.
 
@@ -47,7 +49,7 @@ $ cp         # copy file
 $ rm         # delete file
 ``` 
 
-You can get an idea about the functionality of bash commands from [this Bash commands cheat sheet](https://learncodethehardway.org/unix/bash_cheat_sheet.pdf)
+You can get an idea about the functionality of Linux commands from [this cheat sheet](https://files.fosswire.com/2007/08/fwunixref.pdf)
 
 
 ### 2a. Bash: navigate through your file system
@@ -69,7 +71,7 @@ Let's talk more about the output of `pwd`.
 ![](http://i1.wp.com/mycodinglab.com/wp-content/uploads/2014/01/Linux-File-System-Mycodinglab.jpg)
 
 
-File systems have a hierarchial structure. In a hierarchical file system, the folders and files are displayed in groups, which allows the user to see only the files they’re interested in seeing. For example, in the picture above, the root folder contains folders named `bin`, `etc`, `home`, *etc.* Each of these folders could have hundreds of their own files, but unless they are opened the files are not displayed.
+File systems have a hierarchical structure. In a hierarchical file system, the folders and files are displayed in groups, which allows the user to see only the files they’re interested in seeing. For example, in the picture above, the root folder contains folders named `bin`, `etc`, `home`, *etc.* Each of these folders could have hundreds of their own files, but unless they are opened the files are not displayed.
 
 In GUI the user views the contents of each folder by double-clicking the folder.
 
@@ -121,24 +123,24 @@ If you do not have `Desktop` directory, it will give you an error...
 
 #### **Challenge 1**
 
-Remember, we added `SWC` folder to the Destktop in the beginning of the workshop? Can you now list contents of `SWC` directory from your current directory?
+Remember, we added `SCW` folder to the Destktop in the beginning of the workshop? Can you now list contents of `SCW` directory from your current directory?
 
 #### **Solution:** 
 ```
-ls -F Desktop/SWC/
+ls -F Desktop/SCW/
 ```
 
-In the exercise above, you viewed files in `SWC`  directory while in home directory. But you can change the directory and move directly into `SWC`  directory.
+In the exercise above, you viewed files in `SCW`  directory while in home directory. But you can change the directory and move directly into `SCW`  directory.
 
 ```
 $ cd Desktop
 $ pwd
 
-$ cd SWC
+$ cd SCW
 $ pwd
 
 # you could have done it in one step: 
-$ cd Desktop/SWC
+$ cd Desktop/SCW
 
 $ ls -F
 ```
@@ -152,10 +154,10 @@ $ cd Desktop
 # But try this:
 $ cd ..          #works!
 
-# Why? Let's list ALL files in `SWC` folder. Option -a displays hidden directories as well
+# Why? Let's list ALL files in `SCW` folder. Option -a displays hidden directories as well
 $ ls -F -a
 ```
-`..` is a special directory name meaning “the directory containing this one”, or the parent of the current directory and `.` means “the current working directory”. In our case,  `..` refers to `Desktop` directory and `.` refers to `SWC` directory.
+`..` is a special directory name meaning “the directory containing this one”, or the parent of the current directory and `.` means “the current working directory”. In our case,  `..` refers to `Desktop` directory and `.` refers to `SCW` directory.
 
 
 But `cd` without any arguments takes you ... where?
@@ -167,7 +169,7 @@ $ pwd
 
 **Relative vs Absolute Paths**
 
-Navigation with `cd ..` is an example of the relative path - you indicate where you want to go relative to the location you are currently in. in contrast, when you give an absolute path to the folder or file, you will end up there no matter what your current location within file system is.
+Navigation with `cd ..` is an example of the relative path - you indicate where you want to go relative to the location you are currently in. In contrast, when you give an absolute path to the folder or file, you will end up there no matter what your current location within file system is.
 
 ```
 $ pwd  #specifies absolute path to current directory
@@ -183,13 +185,13 @@ $ cd - #takes you BACK one directory, NOT UP!!!
 
 #### **Challenge 2**
 
-Make a diagram of our directory structure (~/Desktop/SWC) and practice navigation commands.  
+Make a diagram of our directory structure (~/Desktop/SCW) and practice navigation commands.  
 a) Find out where you currently are.  
 b) Go to `Data` folder, what is there?  
 c) Go back where you came from (with `cd -` command).  
 d) Go one directory up.  
 e) Try relative and absolute paths.  
-f) Get comfortable navigating across file system - try changing directories into different folders within `SWC` folder and explore there contents. Use `-a` flag, does every directory have hidden files?  
+f) Get comfortable navigating across file system - try changing directories into different folders within `SCW` folder and explore there contents. Use `-a` flag, does every directory have hidden files?  
 
 
 ### 2b. Bash: make new files and directories
@@ -197,9 +199,9 @@ Now that you know how to navigate your file system and list files that are alrea
 You can create, delete, move, copy, rename files and directories using linux commands.
 
 ```
-#Navigate to `SWC` folder
+#Navigate to `SCW` folder
 $ cd   # takes you home no matter where you are at the momemt
-$ cd Desktop/SWC
+$ cd Desktop/SCW
 
 #check you are in the correct place
 $ pwd
@@ -279,15 +281,15 @@ rm -r India Japan
 
 #### **Challenge 3**
 
-After the break we will work with files from the `Data` folder located inside `SWC` folder. Your challenge is to copy `Data` folder to `Lesson1_UnixShell` folder. Make sure you understand the directory structure of `SWC` before we continue.
+After the break we will work with files from the `Data` folder located inside `SCW` folder. Your challenge is to copy `Data` folder to `Lesson1_UnixShell` folder. Make sure you understand the directory structure of `SCW` before we continue.
 
 **Solution**
 
 ```
 cp -r ../Data .
 
-# SWC directory structure
-SWC
+# SCW directory structure
+SCW
   -> Data/
   -> Data_Copy
   -> Lesson1_UnixShell/
@@ -328,7 +330,7 @@ Let's start with looking at some real data.
 You copied `Data` folder into `Lesson1_UnixShell` before the break. Let's see what is in `Data` folder.
 
 How will you do this?
-Start from `SWC` folder.
+Start from `SCW` folder.
 ```
 $ cd Lesson1_UnixShell
 
@@ -525,7 +527,8 @@ cd ../../
 Let's write the commands we used to find the highest life expectancy to text file. We will look at Mexico this time.
 Open your text editor, add the following lines:
 ```
-#!/bin/bash  #path to bash shell that will execute this file
+#!/bin/bash  
+#path to bash shell that will execute this file (no comments are allowed on the line that starts with #!)
 
 #notice path to data file - why?
 cut -f1,3,4 Data/ByCountry/Mexico.txt|sort -nk3|tail -n1 > HighestLE_Mexico.txt
